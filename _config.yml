@@ -7,7 +7,7 @@
 title: Blog Name
 subtitle:
 description: "Blog Description"
-author: icearchimaeg
+author: icearchimage
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -19,7 +19,7 @@ baseurl:
 permalink: pretty
 
 # Pagination
-paginate: 7
+paginate: 10
 #paginate_path: "/page:num/"
 #archive:
   #paginate: 10
@@ -83,7 +83,7 @@ keywords: "Jekyll, NexT"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss:false
 
 # Specify the date when the site was setup
 since: 2018
@@ -215,10 +215,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   #LinkLabel: Link
-  GitHub: https://github.com/Jackpon
-  ZhiHu: https://www.zhihu.com/people/Jackpon/activities
-  404公益@宝贝回家: 404.html
-  LeetCode: site/
+  GitHub: https://github.com/icearchimage
   
 # Social Links Icons
 # Icon Mapping:
@@ -358,7 +355,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night eighties
+highlight_theme: normal
 
 
 # ---------------------------------------------------------------
@@ -386,7 +383,7 @@ baidu_analytics: ea13fa2dc2aa892b0c36fe0fbc9d067d
 # Disqus
 disqus:
   enable: true
-  shortname: test
+  shortname: 
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
