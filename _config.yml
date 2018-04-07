@@ -386,7 +386,7 @@ baidu_analytics: ea13fa2dc2aa892b0c36fe0fbc9d067d
 # Disqus
 disqus:
   enable: true
-  shortname:
+  shortname: test
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
@@ -601,10 +601,10 @@ pace: false
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: true
+canvas_nest: false
 
 # three_waves
-three_waves: false
+three_waves: true
 
 # canvas_lines
 canvas_lines: false
