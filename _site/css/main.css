@@ -32,7 +32,7 @@ html {
 body {
   font-family: 'Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',sans-serif;
   color: #333;
-  background-image: url(https://ooo.0o0.ooo/2016/06/20/5768c606cf9cb.jpg);
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cloudy-day.png");
   position: relative;
   min-height: 100%;
   padding-bottom: 190px; }
@@ -109,17 +109,17 @@ img {
   max-width: 100%; }
 
 header {
-  background: #222;
+  background: #87ceeb;
   height: 52px;
-  color: #9d9d9d;
+  color: #3f3f3f;
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px; }
   header a {
-    color: #9d9d9d;
+    color: #3f3f3f;
     -webkit-transition: 0.2s ease;
     transition: 0.2s ease; }
     header a:hover {
-      color: #fff; }
+      color: #3f3f3f; }
   header .wrapper {
     width: 1140px;
     margin: 0 auto;
@@ -148,13 +148,13 @@ header {
             padding: 0 10px;
             height: 52px; }
             header .wrapper nav ul li a:hover {
-              background-color: #000; }
+              background-color: #fff;
+              box-shadow: 0 25px 25px -15px rgba(255, 255, 255, 0.93); }
             header .wrapper nav ul li a i {
               margin-right: 5px; }
           header .wrapper nav ul li > .active {
-            color: #fff;
-            background-color: #000;
-            box-shadow: 0 25px 25px -15px rgba(255, 255, 255, 0.93); }
+            color: #3f3f3f;
+            background-color: #AFEEEE; }
 
 @media screen and (max-width: 1200px) and (min-width: 770px) {
   header {
@@ -295,12 +295,12 @@ header {
   margin: 0 auto; }
   .page .left {
     width: 75%;
-    float: left;
+    float: right;
     padding: 20px 30px;
     line-height: 1.6;
     font-size: 16px;
     background-color: #f8f8fd;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 30px rgba(10, 10, 0, 0.1) inset; }
+    box-shadow: 0 1px 2px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2) inset; }
     .page .left > h1 {
       margin-bottom: -10px; }
     .page .left a:not([title]) {
@@ -350,7 +350,7 @@ header {
   .page .right {
     float: left;
     width: 25%;
-    padding-left: 20px;
+    padding-right: 20px;
     top: 0; }
     .page .right .fixed {
       position: fixed;
@@ -361,7 +361,7 @@ header {
     .page .right .side {
       box-sizing: border-box;
       background-color: #f8f8fd;
-      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3), 0 0 30px rgba(10, 10, 0, 0.1) inset;
+      box-shadow: 0 1px 3px 1px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.1) inset;
       padding-bottom: 1px;
       -ms-word-break: break-all;
       word-break: break-all;
@@ -820,11 +820,11 @@ pre {
       -o-transition: 0.5s ease;
       -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); }
+      box-shadow: 0 0 10px 0 rgba(0, 255, 255, 0.3); }
       .page[demo] .left .grid .grid-item:hover {
         -webkit-box-shadow: 0 2px 30px -1px rgba(0, 0, 0, 0.6), inset 0 0 87px 0 rgba(184, 184, 184, 0.13);
         -moz-box-shadow: 0 2px 30px -1px rgba(0, 0, 0, 0.6), inset 0 0 87px 0 rgba(184, 184, 184, 0.13);
-        box-shadow: 0 2px 30px -1px rgba(0, 0, 0, 0.6), inset 0 0 87px 0 rgba(184, 184, 184, 0.13); }
+        box-shadow: 0 2px 30px -1px rgba(0, 255, 255, 0.6), inset 0 0 87px 0 rgba(184, 184, 184, 0.13); }
       .page[demo] .left .grid .grid-item .a-img {
         color: #fff; }
         .page[demo] .left .grid .grid-item .a-img:hover {
@@ -850,9 +850,9 @@ pre {
   bottom: 0;
   left: 0;
   text-align: center;
-  background-color: #2b2b3c;
+  background-color: #87ceeb;
   box-shadow: 0 -2px 4px 1px rgba(0, 0, 0, 0.5);
-  color: #bbb; }
+  color: #3f3f3f; }
   .site-footer .wrapper {
     width: 1140px;
     margin: 0 auto;
@@ -865,7 +865,7 @@ pre {
     .site-footer .wrapper .contact {
       display: inline-block; }
       .site-footer .wrapper .contact a {
-        color: #ccc;
+        color: #1E90FF;
         transition: 0.3s ease; }
         .site-footer .wrapper .contact a:hover {
           color: #fff; }
