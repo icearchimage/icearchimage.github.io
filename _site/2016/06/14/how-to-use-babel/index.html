@@ -189,8 +189,8 @@
         <ul id="markdown-toc">
   <li><a href="#babel-cli" id="markdown-toc-babel-cli">babel-cli</a></li>
   <li><a href="#在项目内运行-babel-cli" id="markdown-toc-在项目内运行-babel-cli">在项目内运行 babel-cli</a></li>
-  <li><a href="#配置babelrc" id="markdown-toc-配置babelrc">配置<code class="highlighter-rouge">.babelrc</code></a></li>
-  <li><a href="#配置jshintrc" id="markdown-toc-配置jshintrc">配置<code class="highlighter-rouge">.jshintrc</code></a></li>
+  <li><a href="#配置babelrc" id="markdown-toc-配置babelrc">配置<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">babelrc</span></code></a></li>
+  <li><a href="#配置jshintrc" id="markdown-toc-配置jshintrc">配置<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">jshintrc</span></code></a></li>
 </ul>
 
 <p><a href="https://babeljs.io/">Babel</a> 用于将 ES6 的代码转化为 ES5，使得 ES6 可以在目前的浏览器环境下使用。学习使用 babel 是为了使用 ES2015 做准备。本文将介绍如何使用 babel，以及一些相关的配置。</p>
@@ -245,7 +245,7 @@ babel src <span class="nt">-d</span> lib
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> babel-cli
 </code></pre></div></div>
 
-<p>项目中的<code class="highlighter-rouge">package.json</code>应该包含如下内容：</p>
+<p>项目中的<code class="language-c++ highlighter-rouge"><span class="n">package</span><span class="p">.</span><span class="n">json</span></code>应该包含如下内容：</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"learn-es6"</span><span class="p">,</span><span class="w">
@@ -275,13 +275,13 @@ babel src <span class="nt">-d</span> lib
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run build
 </code></pre></div></div>
 
-<p>还不能成功编译，因为没有配置<code class="highlighter-rouge">.babelrc</code>文件。</p>
+<p>还不能成功编译，因为没有配置<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">babelrc</span></code>文件。</p>
 
-<h2 id="配置babelrc">配置<code class="highlighter-rouge">.babelrc</code></h2>
+<h2 id="配置babelrc">配置<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">babelrc</span></code></h2>
 
-<p>通过配置<code class="highlighter-rouge">.babelrc</code>来告诉 babel 来做什么。</p>
+<p>通过配置<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">babelrc</span></code>来告诉 babel 来做什么。</p>
 
-<p>在项目的根路径下创建<code class="highlighter-rouge">.babelrc</code>文件。然后输入以下内容作为开始：</p>
+<p>在项目的根路径下创建<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">babelrc</span></code>文件。然后输入以下内容作为开始：</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"presets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -294,7 +294,7 @@ babel src <span class="nt">-d</span> lib
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> babel-preset-es2015
 </code></pre></div></div>
 
-<p>安装完成后在<code class="highlighter-rouge">.babelrc</code>中添加参数：</p>
+<p>安装完成后在<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">babelrc</span></code>中添加参数：</p>
 
 <div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "presets": [
@@ -304,7 +304,7 @@ babel src <span class="nt">-d</span> lib
 }
 </code></pre></div></div>
 
-<p>现在在项目<code class="highlighter-rouge">src/main.js</code>中写一些 ES2015 的代码试试吧。</p>
+<p>现在在项目<code class="language-c++ highlighter-rouge"><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">js</span></code>中写一些 ES2015 的代码试试吧。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div></div>
@@ -316,11 +316,11 @@ babel src <span class="nt">-d</span> lib
 
 <p>执行后终端中显示：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; learn-es6@1.0.0 build c:\gitWorkSpace\learn-es6
-&gt; babel src -d lib
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">learn</span><span class="o">-</span><span class="n">es6</span><span class="err">@</span><span class="mf">1.0.0</span> <span class="n">build</span> <span class="n">c</span><span class="o">:</span><span class="err">\</span><span class="n">gitWorkSpace</span><span class="err">\</span><span class="n">learn</span><span class="o">-</span><span class="n">es6</span>
+<span class="o">&gt;</span> <span class="n">babel</span> <span class="n">src</span> <span class="o">-</span><span class="n">d</span> <span class="n">lib</span>
 </code></pre></div></div>
 
-<p>然后可以看到目录中出现了<code class="highlighter-rouge">lib/main.js</code></p>
+<p>然后可以看到目录中出现了<code class="language-c++ highlighter-rouge"><span class="n">lib</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">js</span></code></p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"use strict"</span><span class="p">;</span>
 
@@ -329,11 +329,11 @@ babel src <span class="nt">-d</span> lib
 
 <p>即编译成功。</p>
 
-<h2 id="配置jshintrc">配置<code class="highlighter-rouge">.jshintrc</code></h2>
+<h2 id="配置jshintrc">配置<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">jshintrc</span></code></h2>
 
 <p>若编辑器中安装了 jshint 语法检查的插件。默认对于 ES2015 的代码可能会报错或者警告，看着可能会不爽。我们可以在配置文件中将它设置为允许 ES2015 的模式。</p>
 
-<p>在项目根目录下创建文件<code class="highlighter-rouge">.jshintrc</code>。内容如下：</p>
+<p>在项目根目录下创建文件<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">jshintrc</span></code>。内容如下：</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"asi"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -343,7 +343,7 @@ babel src <span class="nt">-d</span> lib
 
 <p>上述文件我分别设置了，使用无分号模式，es 版本使用 2015。</p>
 
-<p>关于<code class="highlighter-rouge">.jshintrc</code>的更详细配置可以参见官方示例：<a href="https://github.com/jshint/jshint/blob/master/examples/.jshintrc">https://github.com/jshint/jshint/blob/master/examples/.jshintrc</a></p>
+<p>关于<code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">jshintrc</span></code>的更详细配置可以参见官方示例：<a href="https://github.com/jshint/jshint/blob/master/examples/.jshintrc">https://github.com/jshint/jshint/blob/master/examples/.jshintrc</a></p>
 
 <p>好，babel 就说到这里，下面开始进入真正的 ES2015 的学习！</p>
 

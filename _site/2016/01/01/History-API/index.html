@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/2015/12/31/History-API/">
+    <link rel="canonical" href="http://localhost:4000/2016/01/01/History-API/">
     <link rel="alternate" type="application/rss+xml" title="Ice Blog" href="http://localhost:4000/feed.xml ">
 
 
@@ -128,7 +128,7 @@
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2015-12-31
+                <i class="fa fa-calendar"></i>2016-01-01
             </div>
 
             <div class="label-card">
@@ -195,8 +195,8 @@
         <ul id="markdown-toc">
   <li><a href="#起因" id="markdown-toc-起因">起因</a></li>
   <li><a href="#history" id="markdown-toc-history">History</a>    <ul>
-      <li><a href="#back-forward-go-length" id="markdown-toc-back-forward-go-length"><code class="highlighter-rouge">back()</code>, <code class="highlighter-rouge">forward()</code>, <code class="highlighter-rouge">go()</code>, <code class="highlighter-rouge">length</code></a></li>
-      <li><a href="#pushstate-replacestate" id="markdown-toc-pushstate-replacestate"><code class="highlighter-rouge">pushState()</code>, <code class="highlighter-rouge">replaceState()</code></a></li>
+      <li><a href="#back-forward-go-length" id="markdown-toc-back-forward-go-length"><code class="language-c++ highlighter-rouge"><span class="n">back</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">forward</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">go</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">length</span></code></a></li>
+      <li><a href="#pushstate-replacestate" id="markdown-toc-pushstate-replacestate"><code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">replaceState</span><span class="p">()</span></code></a></li>
     </ul>
   </li>
   <li><a href="#pjax" id="markdown-toc-pjax">pjax</a></li>
@@ -227,22 +227,22 @@ https://www.zhihu.com/question/38802932
   <p>纯前端怎么处理？用hash吗，如下:
 https://www.zhihu.com/question#38802932
 那如果本页跳转，只改变hash的话，页面不会刷新。
-使用<code class="highlighter-rouge">location.reload()</code>倒是可以解决。</p>
+使用<code class="language-c++ highlighter-rouge"><span class="n">location</span><span class="p">.</span><span class="n">reload</span><span class="p">()</span></code>倒是可以解决。</p>
 
   <p><strong>但总觉得这样处理不够优雅。大家在工作中是如何处理此类场景的？还是用传统的后台路由来提供动态url？</strong></p>
 </blockquote>
 
-<p>感谢郑海波和剧中人的热心回答。都提到了<code class="highlighter-rouge">history</code>对象中的<code class="highlighter-rouge">pushState</code>，这是我第一次接触到这方面的内容（顿时觉得自己真是才疏学浅）。</p>
+<p>感谢郑海波和剧中人的热心回答。都提到了<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>对象中的<code class="language-c++ highlighter-rouge"><span class="n">pushState</span></code>，这是我第一次接触到这方面的内容（顿时觉得自己真是才疏学浅）。</p>
 
-<p>同时也有人提到了<code class="highlighter-rouge">pjax</code>，这个就是<code class="highlighter-rouge">pushState</code>+<code class="highlighter-rouge">Ajax</code>的封装，也很有意思。</p>
+<p>同时也有人提到了<code class="language-c++ highlighter-rouge"><span class="n">pjax</span></code>，这个就是<code class="language-c++ highlighter-rouge"><span class="n">pushState</span></code>+<code class="language-c++ highlighter-rouge"><span class="n">Ajax</span></code>的封装，也很有意思。</p>
 
 <p>下面就来研究和实践一下吧。</p>
 
 <h2 id="history">History</h2>
 
-<p><code class="highlighter-rouge">window</code>对象通过<code class="highlighter-rouge">history</code>对象提供对浏览器历史记录的访问能力。它暴露了一些非常有用的方法和属性，让你在历史记录中自由前进和后退，而在 HTML5 中，更可以操纵历史记录中的数据。</p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">window</span></code>对象通过<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>对象提供对浏览器历史记录的访问能力。它暴露了一些非常有用的方法和属性，让你在历史记录中自由前进和后退，而在 HTML5 中，更可以操纵历史记录中的数据。</p>
 
-<h3 id="back-forward-go-length"><code class="highlighter-rouge">back()</code>, <code class="highlighter-rouge">forward()</code>, <code class="highlighter-rouge">go()</code>, <code class="highlighter-rouge">length</code></h3>
+<h3 id="back-forward-go-length"><code class="language-c++ highlighter-rouge"><span class="n">back</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">forward</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">go</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">length</span></code></h3>
 
 <p>浏览器的历史记录就好像一个栈，最新的在最上面，较早之前看过的在下面。</p>
 
@@ -254,80 +254,80 @@ https://www.zhihu.com/question#38802932
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">back()</code></p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">back</span><span class="p">()</span></code></p>
 
     <p>在历史记录中后退</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  history.back();
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">history</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p><code class="highlighter-rouge">forward()</code></p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">forward</span><span class="p">()</span></code></p>
 
     <p>在历史记录中前进</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  history.forward();
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">history</span><span class="p">.</span><span class="n">forward</span><span class="p">();</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p><code class="highlighter-rouge">go()</code></p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">go</span><span class="p">()</span></code></p>
 
     <p>移动到指定的历史记录点</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  history.go(-1);
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">history</span><span class="p">.</span><span class="n">go</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div>    </div>
 
     <p>通过指定一个相对于当前页面位置的数值，你可以使用go()方法从当前会话的历史记录中加载页面（当前页面位置索引值为0，上一页就是-1，下一页为1）。</p>
 
-    <p><strong>go()不填参数或参数为go(0)时，页面会刷新，即<code class="highlighter-rouge">history.go()</code>或<code class="highlighter-rouge">history.go(0)</code>相当于<code class="highlighter-rouge">location.reload()</code></strong></p>
+    <p><strong>go()不填参数或参数为go(0)时，页面会刷新，即<code class="language-c++ highlighter-rouge"><span class="n">history</span><span class="p">.</span><span class="n">go</span><span class="p">()</span></code>或<code class="language-c++ highlighter-rouge"><span class="n">history</span><span class="p">.</span><span class="n">go</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></code>相当于<code class="language-c++ highlighter-rouge"><span class="n">location</span><span class="p">.</span><span class="n">reload</span><span class="p">()</span></code></strong></p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">length</code></p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">length</span></code></p>
 
-    <p><code class="highlighter-rouge">length</code>为history的属性，显示history长度。</p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">length</span></code>为history的属性，显示history长度。</p>
   </li>
 </ul>
 
 <p>本节在线demo见：<a href="http://gaohaoyang.github.io/history-pjax-demo/">History &amp; pjax demo</a> 源代码：<a href=""></a></p>
 
-<p><strong>经过亲自测试，<code class="highlighter-rouge">history</code>对象只记录同一个 tab 页内的历史。如果是在新窗口打开的，则无效。如：在a标签中添加<code class="highlighter-rouge">target="_blank"</code>，或按住<code class="highlighter-rouge">ctrl</code>点击，这类场景下，在新的tab页中，<code class="highlighter-rouge">history</code>对象也是新的。</strong></p>
+<p><strong>经过亲自测试，<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>对象只记录同一个 tab 页内的历史。如果是在新窗口打开的，则无效。如：在a标签中添加<code class="language-c++ highlighter-rouge"><span class="n">target</span><span class="o">=</span><span class="s">"_blank"</span></code>，或按住<code class="language-c++ highlighter-rouge"><span class="n">ctrl</span></code>点击，这类场景下，在新的tab页中，<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>对象也是新的。</strong></p>
 
-<p><strong>且<code class="highlighter-rouge">history</code>对象记录的信息与是否同源也无关，所以唯一要满足的就是同一个标签页。</strong></p>
+<p><strong>且<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>对象记录的信息与是否同源也无关，所以唯一要满足的就是同一个标签页。</strong></p>
 
-<h3 id="pushstate-replacestate"><code class="highlighter-rouge">pushState()</code>, <code class="highlighter-rouge">replaceState()</code></h3>
+<h3 id="pushstate-replacestate"><code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">()</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">replaceState</span><span class="p">()</span></code></h3>
 
-<p>HTML5 引进了<code class="highlighter-rouge">history.pushState()</code>方法和<code class="highlighter-rouge">history.replaceState()</code>方法，它们允许你逐条地添加和修改历史记录条目，能够在不加载新页面的情况下没改变浏览器的URL。这些方法可以协同<code class="highlighter-rouge">window.onpopstate</code>事件一起工作。</p>
+<p>HTML5 引进了<code class="language-c++ highlighter-rouge"><span class="n">history</span><span class="p">.</span><span class="n">pushState</span><span class="p">()</span></code>方法和<code class="language-c++ highlighter-rouge"><span class="n">history</span><span class="p">.</span><span class="n">replaceState</span><span class="p">()</span></code>方法，它们允许你逐条地添加和修改历史记录条目，能够在不加载新页面的情况下没改变浏览器的URL。这些方法可以协同<code class="language-c++ highlighter-rouge"><span class="n">window</span><span class="p">.</span><span class="n">onpopstate</span></code>事件一起工作。</p>
 
-<p>使用<code class="highlighter-rouge">history.pushState()</code>会改变<code class="highlighter-rouge">referrer</code>的值，而在你调用方法后创建的  XMLHttpRequest 对象会在 HTTP 请求头中使用这个值。<code class="highlighter-rouge">referrer的</code>值则是创建  XMLHttpRequest 对象时所处的窗口的 URL。</p>
+<p>使用<code class="language-c++ highlighter-rouge"><span class="n">history</span><span class="p">.</span><span class="n">pushState</span><span class="p">()</span></code>会改变<code class="language-c++ highlighter-rouge"><span class="n">referrer</span></code>的值，而在你调用方法后创建的  XMLHttpRequest 对象会在 HTTP 请求头中使用这个值。<code class="language-c++ highlighter-rouge"><span class="n">referrer</span><span class="err">的</span></code>值则是创建  XMLHttpRequest 对象时所处的窗口的 URL。</p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">pushState(any data, string title, [string url])</code></p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">(</span><span class="n">any</span> <span class="n">data</span><span class="p">,</span> <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="p">[</span><span class="n">string</span> <span class="n">url</span><span class="p">])</span></code></p>
 
-    <p>第一个参数为<code class="highlighter-rouge">history</code>对象的<code class="highlighter-rouge">state</code>属性值，可以放任意数据，记录历史状态。第二个参数是新状态的标题，目前浏览器基本不支持。第三个参数为可选的相对url。</p>
+    <p>第一个参数为<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>对象的<code class="language-c++ highlighter-rouge"><span class="n">state</span></code>属性值，可以放任意数据，记录历史状态。第二个参数是新状态的标题，目前浏览器基本不支持。第三个参数为可选的相对url。</p>
 
-    <p>执行<code class="highlighter-rouge">pushState</code>后，可以在不加载新页面的情况下，更改url。同时<code class="highlighter-rouge">history</code>栈中新增一条数据。</p>
+    <p>执行<code class="language-c++ highlighter-rouge"><span class="n">pushState</span></code>后，可以在不加载新页面的情况下，更改url。同时<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>栈中新增一条数据。</p>
 
     <p>例如，我们有这样一段代码：</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;button id="push1"&gt;pushState()&lt;/button&gt;
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&lt;</span><span class="n">button</span> <span class="n">id</span><span class="o">=</span><span class="s">"push1"</span><span class="o">&gt;</span><span class="n">pushState</span><span class="p">()</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
 
-  document.querySelector('#push1').addEventListener('click', function() {
-      history.pushState('abc','pushStatePageTitle','pushState.html');
-      document.querySelector('#length').innerHTML = history.length;//重新读取历史长度
-  });
+  <span class="n">document</span><span class="p">.</span><span class="n">querySelector</span><span class="p">(</span><span class="err">'#</span><span class="n">push1</span><span class="err">'</span><span class="p">).</span><span class="n">addEventListener</span><span class="p">(</span><span class="err">'</span><span class="n">click</span><span class="err">'</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">history</span><span class="p">.</span><span class="n">pushState</span><span class="p">(</span><span class="err">'</span><span class="n">abc</span><span class="sc">','</span><span class="n">pushStatePageTitle</span><span class="sc">','</span><span class="n">pushState</span><span class="p">.</span><span class="n">html</span><span class="err">'</span><span class="p">);</span>
+      <span class="n">document</span><span class="p">.</span><span class="n">querySelector</span><span class="p">(</span><span class="err">'#</span><span class="n">length</span><span class="err">'</span><span class="p">).</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="n">history</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="c1">//重新读取历史长度</span>
+  <span class="p">});</span>
 </code></pre></div>    </div>
 
-    <p>当点击按钮的时候，页面不会刷新，但<code class="highlighter-rouge">url</code>地址的最后已经变为<code class="highlighter-rouge">pushState.html</code>。这一点非常像<code class="highlighter-rouge">hash</code>的作用，但比<code class="highlighter-rouge">hash</code>更优雅。</p>
+    <p>当点击按钮的时候，页面不会刷新，但<code class="language-c++ highlighter-rouge"><span class="n">url</span></code>地址的最后已经变为<code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">.</span><span class="n">html</span></code>。这一点非常像<code class="language-c++ highlighter-rouge"><span class="n">hash</span></code>的作用，但比<code class="language-c++ highlighter-rouge"><span class="n">hash</span></code>更优雅。</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">replaceState(any data, string title, [string url])</code></p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">replaceState</span><span class="p">(</span><span class="n">any</span> <span class="n">data</span><span class="p">,</span> <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="p">[</span><span class="n">string</span> <span class="n">url</span><span class="p">])</span></code></p>
 
-    <p>与<code class="highlighter-rouge">pushState()</code>类似，只是在<code class="highlighter-rouge">history</code>栈中不是新增记录，而是替换一条记录。</p>
+    <p>与<code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">()</span></code>类似，只是在<code class="language-c++ highlighter-rouge"><span class="n">history</span></code>栈中不是新增记录，而是替换一条记录。</p>
   </li>
 </ul>
 
-<p><strong>需要注意的是：</strong><code class="highlighter-rouge">pushState()</code>和<code class="highlighter-rouge">replaceState()</code>方法存在安全方面的限制，本地测试是无效的，会报错，可以简单放到任何服务端测试，或者使用<code class="highlighter-rouge">http-server</code>开启简单服务器，通过访问<code class="highlighter-rouge">localhost</code>来查看效果。</p>
+<p><strong>需要注意的是：</strong><code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">()</span></code>和<code class="language-c++ highlighter-rouge"><span class="n">replaceState</span><span class="p">()</span></code>方法存在安全方面的限制，本地测试是无效的，会报错，可以简单放到任何服务端测试，或者使用<code class="language-c++ highlighter-rouge"><span class="n">http</span><span class="o">-</span><span class="n">server</span></code>开启简单服务器，通过访问<code class="language-c++ highlighter-rouge"><span class="n">localhost</span></code>来查看效果。</p>
 
 <p>本节demo见：<a href="http://gaohaoyang.github.io/history-pjax-demo/index.html">History &amp; pjax demo - pushState</a></p>
 
@@ -335,7 +335,7 @@ https://www.zhihu.com/question#38802932
 
 <p>现在再看本文一开始提出的问题，如何让前端优雅的控制 url，这里就可以考虑 pjax 技术了。我们把 pushState + ajax 进行封装，合起来简称为 pjax。虽然不是什么新的技术，但概念已然不同。</p>
 
-<p>如果不使用 pjax。我们依然可以使用<code class="highlighter-rouge">hash</code>来实现文本开始的需求。但会不利于 SEO，看着也不够优雅。</p>
+<p>如果不使用 pjax。我们依然可以使用<code class="language-c++ highlighter-rouge"><span class="n">hash</span></code>来实现文本开始的需求。但会不利于 SEO，看着也不够优雅。</p>
 
 <p>Pjax的原理十分简单。</p>
 
@@ -343,22 +343,22 @@ https://www.zhihu.com/question#38802932
   <li>拦截 a 标签的默认跳转动作或某些按钮的点击事件。</li>
   <li>使用 Ajax 请求新页面。</li>
   <li>将返回的 Html 替换到页面中。</li>
-  <li>使用 HTML5 的<code class="highlighter-rouge">pushState()</code>修改Url。</li>
+  <li>使用 HTML5 的<code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">()</span></code>修改Url。</li>
 </ol>
 
 <p>个人理解3中也可以仅仅请求数据，再由浏览器渲染。</p>
 
-<p>每当同一个文档的浏览历史（即history对象）出现变化时，会触发<code class="highlighter-rouge">window.onpopstate</code>事件。</p>
+<p>每当同一个文档的浏览历史（即history对象）出现变化时，会触发<code class="language-c++ highlighter-rouge"><span class="n">window</span><span class="p">.</span><span class="n">onpopstate</span></code>事件。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>window.onpopstate = function(event) {
-    console.log(event.state);
-    console.log(location);
-};
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">window</span><span class="p">.</span><span class="n">onpopstate</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">state</span><span class="p">);</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+<span class="p">};</span>
 </code></pre></div></div>
 
 <p>这样在用户点击前进后退时也可以很好的监听url，来做相应的页面渲染。</p>
 
-<p>若用户刷新了页面，但没有相应的页面资源，这时页面就会显示不存在。所以我认为较好的方法是在写<code class="highlighter-rouge">pushState()</code>第三个参数的时候，写为<code class="highlighter-rouge">?a=1</code>这样的参数形式。<a href="https://github.com/browserstate/history.js">History.js</a> 也是这么写的。但是这样应该会多一次请求。也许使用 nodeJS 作为中间层会好一些吧。</p>
+<p>若用户刷新了页面，但没有相应的页面资源，这时页面就会显示不存在。所以我认为较好的方法是在写<code class="language-c++ highlighter-rouge"><span class="n">pushState</span><span class="p">()</span></code>第三个参数的时候，写为<code class="language-c++ highlighter-rouge"><span class="o">?</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span></code>这样的参数形式。<a href="https://github.com/browserstate/history.js">History.js</a> 也是这么写的。但是这样应该会多一次请求。也许使用 nodeJS 作为中间层会好一些吧。</p>
 
 <p>对于上述的探索，不知道是不是我还不够深入，总觉得还是不够完美。</p>
 
@@ -998,13 +998,13 @@ https://www.zhihu.com/question#38802932
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2015/07/23/low-IE-click-empty-block-bug/">在低版本 IE 中点击空 block 元素的问题</a></p>
+        <p><strong>上一篇</strong> <a href="/2015/07/24/low-IE-click-empty-block-bug/">在低版本 IE 中点击空 block 元素的问题</a></p>
         
     </div>
     <div class="nex">
 
         
-        <p><strong>下一篇</strong> <a href="/2016/03/11/jekyll-theme-version-2.0/">对这个 jekyll 博客主题的改版和重构</a></p>
+        <p><strong>下一篇</strong> <a href="/2016/03/12/jekyll-theme-version-2.0/">对这个 jekyll 博客主题的改版和重构</a></p>
         
     </div>
 </div>
@@ -1022,8 +1022,8 @@ https://www.zhihu.com/question#38802932
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://localhost:4000/2015/12/31/History-API/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://localhost:4000/2015/12/31/History-API/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://localhost:4000/2016/01/01/History-API/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2016/01/01/History-API/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

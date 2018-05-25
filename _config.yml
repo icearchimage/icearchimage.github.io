@@ -42,6 +42,14 @@ disqus_shortname: icearchimage
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: c++
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false # 加了背景会变白，不知道在哪里更改
+      start_line: 1
 
 # port
 # port: 1234

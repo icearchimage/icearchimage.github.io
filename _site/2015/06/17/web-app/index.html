@@ -245,7 +245,7 @@
     </ul>
   </li>
   <li><a href="#其他" id="markdown-toc-其他">其他</a>    <ul>
-      <li><a href="#-webkit-tap-highlight-color-属性" id="markdown-toc--webkit-tap-highlight-color-属性"><code class="highlighter-rouge">-webkit-tap-highlight-color</code> 属性</a></li>
+      <li><a href="#-webkit-tap-highlight-color-属性" id="markdown-toc--webkit-tap-highlight-color-属性"><code class="language-c++ highlighter-rouge"><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="n">color</span></code> 属性</a></li>
       <li><a href="#textarea-标签-disabled-颜色" id="markdown-toc-textarea-标签-disabled-颜色">textarea 标签 disabled 颜色</a></li>
     </ul>
   </li>
@@ -356,7 +356,7 @@
   <li>
     <p>为移动设备添加 viewport</p>
 
-    <p><code class="highlighter-rouge">viewport</code> 可以让布局在移动浏览器上显示的更好。 通常会写</p>
+    <p><code class="language-c++ highlighter-rouge"><span class="n">viewport</span></code> 可以让布局在移动浏览器上显示的更好。 通常会写</p>
   </li>
 </ul>
 
@@ -512,28 +512,28 @@
 
 <p>首先要有 ruby 环境。</p>
 
-<p>由于国内网络原因（你懂的），导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时候我们可以通过gem sources命令来配置源，先移除默认的 https://rubygems.org 源，然后添加淘宝的源 https://ruby.taobao.org/，然后查看下当前使用的源是哪个，如果是淘宝的，则表示可以输入 sass 安装命令 <code class="highlighter-rouge">gem install sass</code> 了。</p>
+<p>由于国内网络原因（你懂的），导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时候我们可以通过gem sources命令来配置源，先移除默认的 https://rubygems.org 源，然后添加淘宝的源 https://ruby.taobao.org/，然后查看下当前使用的源是哪个，如果是淘宝的，则表示可以输入 sass 安装命令 <code class="language-c++ highlighter-rouge"><span class="n">gem</span> <span class="n">install</span> <span class="n">sass</span></code> 了。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem sources --remove https://rubygems.org/
-$ gem sources -a https://ruby.taobao.org/
-$ gem sources -l
-*** CURRENT SOURCES ***
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">--</span><span class="n">remove</span> <span class="n">https</span><span class="o">:</span><span class="c1">//rubygems.org/</span>
+<span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">-</span><span class="n">a</span> <span class="n">https</span><span class="o">:</span><span class="c1">//ruby.taobao.org/</span>
+<span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">-</span><span class="n">l</span>
+<span class="o">***</span> <span class="n">CURRENT</span> <span class="n">SOURCES</span> <span class="o">***</span>
 
-https://ruby.taobao.org
-# 请确保只有 ruby.taobao.org
-$ gem install sass
+<span class="n">https</span><span class="o">:</span><span class="c1">//ruby.taobao.org</span>
+<span class="cp"># 请确保只有 ruby.taobao.org
+</span><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">sass</span>
 </code></pre></div></div>
 
 <h3 id="编译">编译</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sass --watch style.scss:style.css --style expanded
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sass</span> <span class="o">--</span><span class="n">watch</span> <span class="n">style</span><span class="p">.</span><span class="n">scss</span><span class="o">:</span><span class="n">style</span><span class="p">.</span><span class="n">css</span> <span class="o">--</span><span class="n">style</span> <span class="n">expanded</span>
 </code></pre></div></div>
 
 <hr />
 
 <h3 id="补充">补充</h3>
 
-<p><strong><code class="highlighter-rouge">rem</code></strong></p>
+<p><strong><code class="language-c++ highlighter-rouge"><span class="n">rem</span></code></strong></p>
 
 <p>字体单位使用 rem，用户在手机上设置了字体大小时，不会打破布局，造成混乱。</p>
 
@@ -765,9 +765,9 @@ $ gem install sass
 
 <p>一个模块就是实现特定功能的文件，有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。模块开发需要遵循一定的规范，否则就都乱套了。</p>
 
-<p>根据AMD规范，我们可以使用 <code class="highlighter-rouge">define</code> 定义模块，使用 <code class="highlighter-rouge">require</code> 调用模块。</p>
+<p>根据AMD规范，我们可以使用 <code class="language-c++ highlighter-rouge"><span class="n">define</span></code> 定义模块，使用 <code class="language-c++ highlighter-rouge"><span class="n">require</span></code> 调用模块。</p>
 
-<p>目前，通行的 js 模块规范主要有两种：<code class="highlighter-rouge">CommonJS</code> 和 <code class="highlighter-rouge">AMD</code>。</p>
+<p>目前，通行的 js 模块规范主要有两种：<code class="language-c++ highlighter-rouge"><span class="n">CommonJS</span></code> 和 <code class="language-c++ highlighter-rouge"><span class="n">AMD</span></code>。</p>
 
 <h3 id="amd规范">AMD规范</h3>
 
@@ -912,29 +912,29 @@ CMD:延迟执行（运行到需加载，根据顺序执行）</p>
 
     <p>以 JSON 模拟数据表的形式存储于 LocalStorage 中</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   使用数据库的思想，构建3张表。
-   cateJson 分类
-   childCateJson 子分类
-   taskJson 任务
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">使用数据库的思想，构建</span><span class="mi">3</span><span class="err">张表。</span>
+   <span class="n">cateJson</span> <span class="err">分类</span>
+   <span class="n">childCateJson</span> <span class="err">子分类</span>
+   <span class="n">taskJson</span> <span class="err">任务</span>
 
-   分类表 cate
-   ----------------------
-   id* | name | child(FK)
-   ----------------------
+   <span class="err">分类表</span> <span class="n">cate</span>
+   <span class="o">----------------------</span>
+   <span class="n">id</span><span class="o">*</span> <span class="o">|</span> <span class="n">name</span> <span class="o">|</span> <span class="n">child</span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+   <span class="o">----------------------</span>
 
-   子分类表 childCate
-   --------------------------------
-   id* | pid(FK) | name | child(FK)
-   --------------------------------
+   <span class="err">子分类表</span> <span class="n">childCate</span>
+   <span class="o">--------------------------------</span>
+   <span class="n">id</span><span class="o">*</span> <span class="o">|</span> <span class="n">pid</span><span class="p">(</span><span class="n">FK</span><span class="p">)</span> <span class="o">|</span> <span class="n">name</span> <span class="o">|</span> <span class="n">child</span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+   <span class="o">--------------------------------</span>
 
-   任务表 task
-   ----------------------------------------------
-   id* | pid(FK) | finish | name | date | content
-   ----------------------------------------------
+   <span class="err">任务表</span> <span class="n">task</span>
+   <span class="o">----------------------------------------------</span>
+   <span class="n">id</span><span class="o">*</span> <span class="o">|</span> <span class="n">pid</span><span class="p">(</span><span class="n">FK</span><span class="p">)</span> <span class="o">|</span> <span class="n">finish</span> <span class="o">|</span> <span class="n">name</span> <span class="o">|</span> <span class="n">date</span> <span class="o">|</span> <span class="n">content</span>
+   <span class="o">----------------------------------------------</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p><strong>使用 <code class="highlighter-rouge">Sass</code> 重构了 CSS 代码</strong></p>
+    <p><strong>使用 <code class="language-c++ highlighter-rouge"><span class="n">Sass</span></code> 重构了 CSS 代码</strong></p>
 
     <p>使用分块、继承等方式，使得代码更加清晰明了。</p>
   </li>
@@ -946,7 +946,7 @@ CMD:延迟执行（运行到需加载，根据顺序执行）</p>
   <li>
     <p><strong>加入页面切换效果</strong></p>
 
-    <p>使用 <code class="highlighter-rouge">translate3d()</code>，纯 CSS3 切换动画效果。</p>
+    <p>使用 <code class="language-c++ highlighter-rouge"><span class="n">translate3d</span><span class="p">()</span></code>，纯 CSS3 切换动画效果。</p>
   </li>
   <li>
     <p><strong>处理了 XSS 防护</strong></p>
@@ -974,17 +974,17 @@ CMD:延迟执行（运行到需加载，根据顺序执行）</p>
 
 <h2 id="其他">其他</h2>
 
-<h3 id="-webkit-tap-highlight-color-属性"><code class="highlighter-rouge">-webkit-tap-highlight-color</code> 属性</h3>
+<h3 id="-webkit-tap-highlight-color-属性"><code class="language-c++ highlighter-rouge"><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="n">color</span></code> 属性</h3>
 
 <p>感谢 <a href="https://github.com/fiona23">fiona</a> 指出。</p>
 
-<p>safari移动端点击的时候会闪一下加上 <code class="highlighter-rouge">-webkit-tap-highlight-color: transparent;</code> 就不会闪了。</p>
+<p>safari移动端点击的时候会闪一下加上 <code class="language-c++ highlighter-rouge"><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="n">color</span><span class="o">:</span> <span class="n">transparent</span><span class="p">;</span></code> 就不会闪了。</p>
 
 <p>参考：</p>
 
 <ul>
-  <li><a href="http://www.css88.com/webkit/-webkit-tap-highlight-color/"><code class="highlighter-rouge">-webkit-tap-highlight-color</code>  css88</a></li>
-  <li><a href="http://ued.ctrip.com/webkitcss/prop/tap-highlight-color.html"><code class="highlighter-rouge">-webkit-tap-highlight-color</code> 属性</a></li>
+  <li><a href="http://www.css88.com/webkit/-webkit-tap-highlight-color/"><code class="language-c++ highlighter-rouge"><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="n">color</span></code>  css88</a></li>
+  <li><a href="http://ued.ctrip.com/webkitcss/prop/tap-highlight-color.html"><code class="language-c++ highlighter-rouge"><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">tap</span><span class="o">-</span><span class="n">highlight</span><span class="o">-</span><span class="n">color</span></code> 属性</a></li>
 </ul>
 
 <hr />
@@ -1004,9 +1004,9 @@ CMD:延迟执行（运行到需加载，根据顺序执行）</p>
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>background: #fff;
--webkit-text-fill-color: rgba(0, 0, 0, 1);
--webkit-opacity: 1;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">background:</span> <span class="cp">#fff;
+</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">text</span><span class="o">-</span><span class="n">fill</span><span class="o">-</span><span class="n">color</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>于是最终代码如下：</p>
@@ -1981,7 +1981,7 @@ CMD:延迟执行（运行到需加载，根据顺序执行）</p>
                     
                         
                         <li class="relatedPost">
-                            <a href="/2016/03/11/jekyll-theme-version-2.0/">对这个 jekyll 博客主题的改版和重构
+                            <a href="/2016/03/12/jekyll-theme-version-2.0/">对这个 jekyll 博客主题的改版和重构
                             
                             </a>
                         </li>
@@ -2046,7 +2046,7 @@ CMD:延迟执行（运行到需加载，根据顺序执行）</p>
     <div class="nex">
 
         
-        <p><strong>下一篇</strong> <a href="/2015/06/17/weinre/">Weinre --WebApp 调试工具</a></p>
+        <p><strong>下一篇</strong> <a href="/2015/06/18/weinre/">Weinre --WebApp 调试工具</a></p>
         
     </div>
 </div>

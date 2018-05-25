@@ -228,10 +228,10 @@
 
 <p>现代版本的描述与原始略有不同，因为如果按照原始方法，愚蠢的计算机会花很多无用的时间去计算上述第 3 步的剩余数字。<strong>这里的方法是在每次迭代时交换这个被取出的数字到原始列表的最后</strong>。这样就将时间复杂度从 O(n^2) 减小到了 <strong>O(n)</strong>。算法的伪代码如下：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-- To shuffle an array a of n elements (indices 0..n-1):
-for i from n−1 downto 1 do
-     j ← random integer such that 0 ≤ j ≤ i
-     exchange a[j] and a[i]
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">--</span> <span class="n">To</span> <span class="n">shuffle</span> <span class="n">an</span> <span class="n">array</span> <span class="n">a</span> <span class="n">of</span> <span class="n">n</span> <span class="n">elements</span> <span class="p">(</span><span class="n">indices</span> <span class="mf">0.</span><span class="p">.</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">:</span>
+<span class="k">for</span> <span class="n">i</span> <span class="n">from</span> <span class="n">n</span><span class="err">−</span><span class="mi">1</span> <span class="n">downto</span> <span class="mi">1</span> <span class="k">do</span>
+     <span class="n">j</span> <span class="err">←</span> <span class="n">random</span> <span class="n">integer</span> <span class="n">such</span> <span class="n">that</span> <span class="mi">0</span> <span class="err">≤</span> <span class="n">j</span> <span class="err">≤</span> <span class="n">i</span>
+     <span class="n">exchange</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="n">and</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </code></pre></div></div>
 
 <h2 id="例子">例子</h2>

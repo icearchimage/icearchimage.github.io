@@ -278,6 +278,27 @@ function sameLengthArraysSimilar(arr1,arr2) {
 }
 ```
 
+```c#
+	void Start () {
+		rb2d = GetComponent<Rigidbody2D>();
+		boxCollider = GetComponent<BoxCollider2D>();
+		animator = GetComponent<Animator>();
+		player = GameObject.Find("PennyPixel");
+	}
+	
+	void OnTriggerEnter2D(Collider2D other) {
+		if(other.tag == "Pipe") {
+			animator.SetBool("IntoPipe", true);
+
+			inPipe = true;
+			Vector2 moveVelo = new Vector2(pipeSpeed,0f);
+			if(!faceRight) moveVelo.x = -moveVelo.x;
+			rb2d.velocity = moveVelo;
+			rb2d.isKinematic = true; // 为了关闭阻力
+		}
+	}
+```
+
 ## 总结
 
 * 上述代码完美的跑完所有的测试用例，读者 [点击这里查看结果](http://gaohaoyang.github.io/javascript-test/arraysSimilar/)，并且可以按 `f12` 看 Console 信息， 里面有代码的执行过程。  

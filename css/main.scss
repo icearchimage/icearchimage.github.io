@@ -41,11 +41,17 @@
 //         @content;
 //     }
 // }
+
 /*
  * variables
  */
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import "reset", "header", "post", "page", "syntax-highlighting", "index", "demo", "footer", "scrollbar", "backToTop";
+@import "reset", "header", "post", "page", "index", "demo", "footer", "scrollbar", "backToTop";
+// modify the syntax highlight style
+//@import "syntax-highlighting";
+//@import url(pygments.css); // 根本没用
+@import "pygments";
+
 // 两个人在列车上相遇
 // 一段旅程充满了诗意
 // 你突然说你要下车

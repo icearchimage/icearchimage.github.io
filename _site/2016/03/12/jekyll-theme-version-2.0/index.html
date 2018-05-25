@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/2016/03/11/jekyll-theme-version-2.0/">
+    <link rel="canonical" href="http://localhost:4000/2016/03/12/jekyll-theme-version-2.0/">
     <link rel="alternate" type="application/rss+xml" title="Ice Blog" href="http://localhost:4000/feed.xml ">
 
 
@@ -128,7 +128,7 @@
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-03-11
+                <i class="fa fa-calendar"></i>2016-03-12
             </div>
 
             <div class="label-card">
@@ -215,9 +215,9 @@
   </li>
 </ul>
 
-<p>本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对<code class="highlighter-rouge">Jekyll</code>也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时<code class="highlighter-rouge">Jekyll</code>如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。</p>
+<p>本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对<code class="language-c++ highlighter-rouge"><span class="n">Jekyll</span></code>也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时<code class="language-c++ highlighter-rouge"><span class="n">Jekyll</span></code>如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。</p>
 
-<p>主要想做这些事情有：添加归档，添加标签，添加分类页面，主页显示文章摘要，代码去除 jQuery 和 BootStrap，优化移动端显示，将所有变量写入配置文件<code class="highlighter-rouge">_config.yml</code>中等。再优化一些细节吧。希望更多人会喜欢。</p>
+<p>主要想做这些事情有：添加归档，添加标签，添加分类页面，主页显示文章摘要，代码去除 jQuery 和 BootStrap，优化移动端显示，将所有变量写入配置文件<code class="language-c++ highlighter-rouge"><span class="n">_config</span><span class="p">.</span><span class="n">yml</span></code>中等。再优化一些细节吧。希望更多人会喜欢。</p>
 
 <h2 id="改版重构说明">改版重构说明</h2>
 
@@ -227,12 +227,12 @@
 
     <p>即 GFM(github flavored markdown) 的方式。</p>
 
-    <p>Jekyll 已经升级至 3.1.2（2016-03），其中有一些新的要注意的地方，比如官网上说使用了 <code class="highlighter-rouge">Rouge</code> 去做代码高亮而不是默认的 <code class="highlighter-rouge">Pygments</code>，因为 <code class="highlighter-rouge">Jekyll</code> 本身是基于 Ruby 的，因此我看到官方说希望不再使用基于 Python 的 <code class="highlighter-rouge">Pygments</code> 了，而是都使用基于 Ruby 的代码。详情见官网升级说明 <a href="https://jekyllrb.com/docs/upgrading/2-to-3/#syntax-highlighter-changed">syntax-highlighter-changed</a>。</p>
+    <p>Jekyll 已经升级至 3.1.2（2016-03），其中有一些新的要注意的地方，比如官网上说使用了 <code class="language-c++ highlighter-rouge"><span class="n">Rouge</span></code> 去做代码高亮而不是默认的 <code class="language-c++ highlighter-rouge"><span class="n">Pygments</span></code>，因为 <code class="language-c++ highlighter-rouge"><span class="n">Jekyll</span></code> 本身是基于 Ruby 的，因此我看到官方说希望不再使用基于 Python 的 <code class="language-c++ highlighter-rouge"><span class="n">Pygments</span></code> 了，而是都使用基于 Ruby 的代码。详情见官网升级说明 <a href="https://jekyllrb.com/docs/upgrading/2-to-3/#syntax-highlighter-changed">syntax-highlighter-changed</a>。</p>
   </li>
   <li>
     <p><strong>首页中添加摘要</strong></p>
 
-    <p>摘要可以在每一篇 md 文件头中使用 excerpt 属性写出来。也可以在正文中，4个换行符来分割，这个设置见配置文件<code class="highlighter-rouge">_config.yml</code>。</p>
+    <p>摘要可以在每一篇 md 文件头中使用 excerpt 属性写出来。也可以在正文中，4个换行符来分割，这个设置见配置文件<code class="language-c++ highlighter-rouge"><span class="n">_config</span><span class="p">.</span><span class="n">yml</span></code>。</p>
   </li>
   <li>
     <p><strong>添加归档</strong></p>
@@ -262,7 +262,7 @@
   <li>
     <p><strong>简化评论配置，支持 多说 和 disqus</strong></p>
 
-    <p>在<code class="highlighter-rouge">_config.yml</code>中评论配置直接添加自己的<code class="highlighter-rouge">short_name</code>，评论就能正常使用了。</p>
+    <p>在<code class="language-c++ highlighter-rouge"><span class="n">_config</span><span class="p">.</span><span class="n">yml</span></code>中评论配置直接添加自己的<code class="language-c++ highlighter-rouge"><span class="n">short_name</span></code>，评论就能正常使用了。</p>
   </li>
 </ul>
 
@@ -274,10 +274,10 @@
 
 <h3 id="错误呈现">错误呈现</h3>
 
-<p>在执行任何<code class="highlighter-rouge">gem</code>命令的时候出现以下错误：</p>
+<p>在执行任何<code class="language-c++ highlighter-rouge"><span class="n">gem</span></code>命令的时候出现以下错误：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
-    SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://gems.ruby-china.org/specs.4.8.gz)
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">ERROR:</span>  <span class="n">While</span> <span class="n">executing</span> <span class="n">gem</span> <span class="p">...</span> <span class="p">(</span><span class="n">Gem</span><span class="o">::</span><span class="n">RemoteFetcher</span><span class="o">::</span><span class="n">FetchError</span><span class="p">)</span>
+    <span class="n">SSL_connect</span> <span class="n">returned</span><span class="o">=</span><span class="mi">1</span> <span class="n">errno</span><span class="o">=</span><span class="mi">0</span> <span class="n">state</span><span class="o">=</span><span class="n">SSLv3</span> <span class="n">read</span> <span class="n">server</span> <span class="n">certificate</span> <span class="n">B</span><span class="o">:</span> <span class="n">certificate</span> <span class="n">verify</span> <span class="n">failed</span> <span class="p">(</span><span class="n">https</span><span class="o">:</span><span class="c1">//gems.ruby-china.org/specs.4.8.gz)</span>
 </code></pre></div></div>
 
 <h3 id="解决方法">解决方法</h3>
@@ -290,11 +290,11 @@
 
 <p>我使用的是 <a href="https://gist.github.com/fnichol/867550#the-manual-way-boring">The Manual Way</a>，因为 <a href="https://gist.github.com/fnichol/867550#the-ruby-way-fun">The Ruby Way</a> 我没有成功，不知道什么原因，有兴趣的朋友可以试试。下面说说我的具体操作吧。</p>
 
-<p>首先从 <a href="https://curl.haxx.se/ca/cacert.pem">https://curl.haxx.se/ca/cacert.pem</a> 将文件<code class="highlighter-rouge">cacert.pem</code>下载至 <code class="highlighter-rouge">C:\RailsInstaller\cacert.pem</code></p>
+<p>首先从 <a href="https://curl.haxx.se/ca/cacert.pem">https://curl.haxx.se/ca/cacert.pem</a> 将文件<code class="language-c++ highlighter-rouge"><span class="n">cacert</span><span class="p">.</span><span class="n">pem</span></code>下载至 <code class="language-c++ highlighter-rouge"><span class="nl">C:</span><span class="err">\</span><span class="n">RailsInstaller</span><span class="err">\</span><span class="n">cacert</span><span class="p">.</span><span class="n">pem</span></code></p>
 
 <p>然后执行</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set SSL_CERT_FILE=C:\RailsInstaller\cacert.pem
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set</span> <span class="n">SSL_CERT_FILE</span><span class="o">=</span><span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">RailsInstaller</span><span class="err">\</span><span class="n">cacert</span><span class="p">.</span><span class="n">pem</span>
 </code></pre></div></div>
 
 <p>就成功了，不会再出现 SSL 错误了。</p>
@@ -311,23 +311,23 @@
 
 <p>在启动 jekyll 服务的时候出现以下错误：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve
-Configuration file: c:/gitWorkSpace/blog-based-on-jekyll-3/_config.yml
-  Dependency Error: Yikes! It looks like you don't have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you'll need to install this gem. The full error message from Ruby is: 'cannot load such file -- jekyll-paginate' If you run into trouble, you can find helpful resources at http://jekyllrb.com/help/!
-jekyll 3.1.2 | Error:  jekyll-paginate
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jekyll</span> <span class="n">serve</span>
+<span class="n">Configuration</span> <span class="n">file</span><span class="o">:</span> <span class="n">c</span><span class="o">:/</span><span class="n">gitWorkSpace</span><span class="o">/</span><span class="n">blog</span><span class="o">-</span><span class="n">based</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">jekyll</span><span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="n">_config</span><span class="p">.</span><span class="n">yml</span>
+  <span class="n">Dependency</span> <span class="n">Error</span><span class="o">:</span> <span class="n">Yikes</span><span class="o">!</span> <span class="n">It</span> <span class="n">looks</span> <span class="n">like</span> <span class="n">you</span> <span class="n">don</span><span class="err">'</span><span class="n">t</span> <span class="n">have</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span> <span class="n">or</span> <span class="n">one</span> <span class="n">of</span> <span class="n">its</span> <span class="n">dependencies</span> <span class="n">installed</span><span class="p">.</span> <span class="n">In</span> <span class="n">order</span> <span class="n">to</span> <span class="n">use</span> <span class="n">Jekyll</span> <span class="n">as</span> <span class="n">currently</span> <span class="n">configured</span><span class="p">,</span> <span class="n">you</span><span class="err">'</span><span class="n">ll</span> <span class="n">need</span> <span class="n">to</span> <span class="n">install</span> <span class="k">this</span> <span class="n">gem</span><span class="p">.</span> <span class="n">The</span> <span class="n">full</span> <span class="n">error</span> <span class="n">message</span> <span class="n">from</span> <span class="n">Ruby</span> <span class="n">is</span><span class="o">:</span> <span class="err">'</span><span class="n">cannot</span> <span class="n">load</span> <span class="n">such</span> <span class="n">file</span> <span class="o">--</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span><span class="err">'</span> <span class="n">If</span> <span class="n">you</span> <span class="n">run</span> <span class="n">into</span> <span class="n">trouble</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">find</span> <span class="n">helpful</span> <span class="n">resources</span> <span class="n">at</span> <span class="n">http</span><span class="o">:</span><span class="c1">//jekyllrb.com/help/!</span>
+<span class="n">jekyll</span> <span class="mf">3.1.2</span> <span class="o">|</span> <span class="n">Error</span><span class="o">:</span>  <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span>
 </code></pre></div></div>
 
 <h3 id="解决方法-1">解决方法</h3>
 
 <p>我们安装这个插件到本地即可。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-paginate
-Fetching: jekyll-paginate-1.1.0.gem (100%)
-Successfully installed jekyll-paginate-1.1.0
-Parsing documentation for jekyll-paginate-1.1.0
-Installing ri documentation for jekyll-paginate-1.1.0
-Done installing documentation for jekyll-paginate after 3 seconds
-1 gem installed
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span>
+<span class="n">Fetching</span><span class="o">:</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span><span class="o">-</span><span class="mf">1.1.0</span><span class="p">.</span><span class="n">gem</span> <span class="p">(</span><span class="mi">100</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span><span class="o">-</span><span class="mf">1.1.0</span>
+<span class="n">Parsing</span> <span class="n">documentation</span> <span class="k">for</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span><span class="o">-</span><span class="mf">1.1.0</span>
+<span class="n">Installing</span> <span class="n">ri</span> <span class="n">documentation</span> <span class="k">for</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span><span class="o">-</span><span class="mf">1.1.0</span>
+<span class="n">Done</span> <span class="n">installing</span> <span class="n">documentation</span> <span class="k">for</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span> <span class="n">after</span> <span class="mi">3</span> <span class="n">seconds</span>
+<span class="mi">1</span> <span class="n">gem</span> <span class="n">installed</span>
 </code></pre></div></div>
 
 <h2 id="被-foxit-pdf-reader-占用4000端口">被 Foxit pdf reader 占用4000端口</h2>
@@ -336,23 +336,23 @@ Done installing documentation for jekyll-paginate after 3 seconds
 
 <p>在本地使用命令</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jekyll</span> <span class="n">serve</span>
 </code></pre></div></div>
 
 <p>出现错误，如下</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve
-Configuration file: E:/GitWorkSpace/blog/_config.yml
-           Source: E:/GitWorkSpace/blog
-      Destination: E:/GitWorkSpace/blog/_site
-Incremental build: disabled. Enable with --incremental
-     Generating...
-                   done in 0.547 seconds.
- Please add the following to your Gemfile to avoid polling for changes:
-   gem 'wdm', '&gt;= 0.1.0' if Gem.win_platform?
-Auto-regeneration: enabled for 'E:/GitWorkSpace/blog'
-Configuration file: E:/GitWorkSpace/blog/_config.yml
-jekyll 3.1.1 | Error:  Permission denied - bind(2) for 127.0.0.1:4000
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jekyll</span> <span class="n">serve</span>
+<span class="n">Configuration</span> <span class="n">file</span><span class="o">:</span> <span class="n">E</span><span class="o">:/</span><span class="n">GitWorkSpace</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">_config</span><span class="p">.</span><span class="n">yml</span>
+           <span class="n">Source</span><span class="o">:</span> <span class="n">E</span><span class="o">:/</span><span class="n">GitWorkSpace</span><span class="o">/</span><span class="n">blog</span>
+      <span class="n">Destination</span><span class="o">:</span> <span class="n">E</span><span class="o">:/</span><span class="n">GitWorkSpace</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">_site</span>
+<span class="n">Incremental</span> <span class="n">build</span><span class="o">:</span> <span class="n">disabled</span><span class="p">.</span> <span class="n">Enable</span> <span class="n">with</span> <span class="o">--</span><span class="n">incremental</span>
+     <span class="n">Generating</span><span class="p">...</span>
+                   <span class="n">done</span> <span class="n">in</span> <span class="mf">0.547</span> <span class="n">seconds</span><span class="p">.</span>
+ <span class="n">Please</span> <span class="n">add</span> <span class="n">the</span> <span class="n">following</span> <span class="n">to</span> <span class="n">your</span> <span class="n">Gemfile</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">polling</span> <span class="k">for</span> <span class="n">changes</span><span class="o">:</span>
+   <span class="n">gem</span> <span class="err">'</span><span class="n">wdm</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="o">&gt;=</span> <span class="mf">0.1.0</span><span class="err">'</span> <span class="k">if</span> <span class="n">Gem</span><span class="p">.</span><span class="n">win_platform</span><span class="o">?</span>
+<span class="n">Auto</span><span class="o">-</span><span class="n">regeneration</span><span class="o">:</span> <span class="n">enabled</span> <span class="k">for</span> <span class="err">'</span><span class="n">E</span><span class="o">:/</span><span class="n">GitWorkSpace</span><span class="o">/</span><span class="n">blog</span><span class="err">'</span>
+<span class="n">Configuration</span> <span class="n">file</span><span class="o">:</span> <span class="n">E</span><span class="o">:/</span><span class="n">GitWorkSpace</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">_config</span><span class="p">.</span><span class="n">yml</span>
+<span class="n">jekyll</span> <span class="mf">3.1.1</span> <span class="o">|</span> <span class="n">Error</span><span class="o">:</span>  <span class="n">Permission</span> <span class="n">denied</span> <span class="o">-</span> <span class="n">bind</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">4000</span>
 </code></pre></div></div>
 
 <p>网上查阅后，这篇博文解决了我的问题。<a href="http://lxconan.github.io/2016/01/07/who-is-using-my-port/">谁占了我的端口 for Windows –By Liu Xia, ThoughtWorks Senior Consultant. .NET Expert</a></p>
@@ -365,45 +365,45 @@ jekyll 3.1.1 | Error:  Permission denied - bind(2) for 127.0.0.1:4000
 
 <p>输入命令，查看各端口被占用情况</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -ano
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">netstat</span> <span class="o">-</span><span class="n">ano</span>
 </code></pre></div></div>
 
-<p>找到4000端口被占用的<code class="highlighter-rouge">PID</code></p>
+<p>找到4000端口被占用的<code class="language-c++ highlighter-rouge"><span class="n">PID</span></code></p>
 
 <p>我的结果如下：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>协议  本地地址          外部地址          状态           PID
-TCP  0.0.0.0:80        0.0.0.0:0         LISTENING     4
-TCP  0.0.0.0:135       0.0.0.0:0         LISTENING     836
-TCP  0.0.0.0:445       0.0.0.0:0         LISTENING     4
-TCP  0.0.0.0:1801      0.0.0.0:0         LISTENING     2312
-TCP  0.0.0.0:2103      0.0.0.0:0         LISTENING     2312
-TCP  0.0.0.0:2105      0.0.0.0:0         LISTENING     2312
-TCP  0.0.0.0:2107      0.0.0.0:0         LISTENING     2312
-TCP  0.0.0.0:3306      0.0.0.0:0         LISTENING     2404
-TCP  0.0.0.0:3389      0.0.0.0:0         LISTENING     1172
-TCP  0.0.0.0:49664     0.0.0.0:0         LISTENING     584
-TCP  0.0.0.0:49665     0.0.0.0:0         LISTENING     1072
-TCP  0.0.0.0:49666     0.0.0.0:0         LISTENING     460
-TCP  0.0.0.0:49667     0.0.0.0:0         LISTENING     1000
-TCP  0.0.0.0:49670     0.0.0.0:0         LISTENING     696
-TCP  0.0.0.0:49678     0.0.0.0:0         LISTENING     2312
-TCP  0.0.0.0:49692     0.0.0.0:0         LISTENING     688
-TCP  127.0.0.1:4000    0.0.0.0:0         LISTENING     2476
-TCP  127.0.0.1:4000    127.0.0.1:55160   ESTABLISHED   2476
-TCP  127.0.0.1:4012    0.0.0.0:0         LISTENING     12724
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">协议</span>  <span class="err">本地地址</span>          <span class="err">外部地址</span>          <span class="err">状态</span>           <span class="n">PID</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">80</span>        <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">4</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">135</span>       <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">836</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">445</span>       <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">4</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">1801</span>      <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">2312</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">2103</span>      <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">2312</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">2105</span>      <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">2312</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">2107</span>      <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">2312</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">3306</span>      <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">2404</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">3389</span>      <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">1172</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">49664</span>     <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">584</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">49665</span>     <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">1072</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">49666</span>     <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">460</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">49667</span>     <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">1000</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">49670</span>     <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">696</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">49678</span>     <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">2312</span>
+<span class="n">TCP</span>  <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">49692</span>     <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">688</span>
+<span class="n">TCP</span>  <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">4000</span>    <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">2476</span>
+<span class="n">TCP</span>  <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">4000</span>    <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">55160</span>   <span class="n">ESTABLISHED</span>   <span class="mi">2476</span>
+<span class="n">TCP</span>  <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">4012</span>    <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>         <span class="n">LISTENING</span>     <span class="mi">12724</span>
 </code></pre></div></div>
 
 <p>可以看到4000端口的PID是2476。下面查看是什么进程，命令行中输入：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tasklist /svc /FI "PID eq 2476"
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tasklist</span> <span class="o">/</span><span class="n">svc</span> <span class="o">/</span><span class="n">FI</span> <span class="s">"PID eq 2476"</span>
 </code></pre></div></div>
 
 <p>得到结果：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>映像名称                       PID 服务
-========================= ======== ============================================
-FoxitProtect.exe              2476 FxService
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">映像名称</span>                       <span class="n">PID</span> <span class="err">服务</span>
+<span class="o">=========================</span> <span class="o">========</span> <span class="o">============================================</span>
+<span class="n">FoxitProtect</span><span class="p">.</span><span class="n">exe</span>              <span class="mi">2476</span> <span class="n">FxService</span>
 </code></pre></div></div>
 
 <p>可以看到正是福昕阅读器。下面关掉这个服务就好了。在 win10 中进入任务管理器，选择服务选项卡，关闭这个服务就好了，如下图：</p>
@@ -412,15 +412,15 @@ FoxitProtect.exe              2476 FxService
 
 <p>当然也可以在启动jekyll服务的时候指定端口号，如下：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve --port 3000
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jekyll</span> <span class="n">serve</span> <span class="o">--</span><span class="n">port</span> <span class="mi">3000</span>
 </code></pre></div></div>
 
 <p>这样在浏览器中输入 http://localhost:3000/ 就可以访问了。</p>
 
-<p>还可以在配置文件<code class="highlighter-rouge">_config.yml</code>中添加端口号设置（参考<a href="https://jekyllrb.com/docs/configuration/#serve-command-options">官网文档-Serve Command OptionsPermalink</a>），如下：</p>
+<p>还可以在配置文件<code class="language-c++ highlighter-rouge"><span class="n">_config</span><span class="p">.</span><span class="n">yml</span></code>中添加端口号设置（参考<a href="https://jekyllrb.com/docs/configuration/#serve-command-options">官网文档-Serve Command OptionsPermalink</a>），如下：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># port
-port: 1234
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp"># port
+</span><span class="nl">port:</span> <span class="mi">1234</span>
 </code></pre></div></div>
 
 <p>此时，启动jekyll服务后，访问 http://localhost:1234/ 即可</p>
@@ -1073,13 +1073,13 @@ port: 1234
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2015/12/31/History-API/">前端处理动态 url 和 pushStatus 的使用</a></p>
+        <p><strong>上一篇</strong> <a href="/2016/01/01/History-API/">前端处理动态 url 和 pushStatus 的使用</a></p>
         
     </div>
     <div class="nex">
 
         
-        <p><strong>下一篇</strong> <a href="/2016/05/05/regular-expression-group/">浅谈正则表达式中的分组和引用</a></p>
+        <p><strong>下一篇</strong> <a href="/2016/05/06/regular-expression-group/">浅谈正则表达式中的分组和引用</a></p>
         
     </div>
 </div>
@@ -1097,8 +1097,8 @@ port: 1234
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://localhost:4000/2016/03/11/jekyll-theme-version-2.0/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://localhost:4000/2016/03/11/jekyll-theme-version-2.0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://localhost:4000/2016/03/12/jekyll-theme-version-2.0/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2016/03/12/jekyll-theme-version-2.0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

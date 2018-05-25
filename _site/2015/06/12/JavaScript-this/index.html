@@ -201,7 +201,7 @@
 
 <h2 id="全局的-this">全局的 this</h2>
 
-<p>全局 this 一般指向全局对象，浏览器中的全局对象就是 <code class="highlighter-rouge">window</code>。</p>
+<p>全局 this 一般指向全局对象，浏览器中的全局对象就是 <code class="language-c++ highlighter-rouge"><span class="n">window</span></code>。</p>
 
 <p>例如：</p>
 
@@ -257,7 +257,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span> <span class="c1">// 37</span>
 </code></pre></div></div>
 
-<p>上面的代码，创建了对象 o，但是没有给对象 o，添加方法。而是通过 <code class="highlighter-rouge">o.f = independent</code> 临时添加了方法属性。这样这个方法中的 this 同样也指向这个对象 o。</p>
+<p>上面的代码，创建了对象 o，但是没有给对象 o，添加方法。而是通过 <code class="language-c++ highlighter-rouge"><span class="n">o</span><span class="p">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">independent</span></code> 临时添加了方法属性。这样这个方法中的 this 同样也指向这个对象 o。</p>
 
 <h2 id="对象原型链上的-this">对象原型链上的 this</h2>
 
@@ -272,7 +272,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">f</span><span class="p">());</span> <span class="c1">//3</span>
 </code></pre></div></div>
 
-<p>通过 <code class="highlighter-rouge">var p = Object.create(o)</code> 创建的对象，p 是基于原型 o 创建出的对象。</p>
+<p>通过 <code class="language-c++ highlighter-rouge"><span class="n">var</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">o</span><span class="p">)</span></code> 创建的对象，p 是基于原型 o 创建出的对象。</p>
 
 <p>p 的原型是 o，调用 f() 的时候是调用了 o 上的方法 f()，这里面的 this 是可以指向当前对象的，即对象 p。</p>
 

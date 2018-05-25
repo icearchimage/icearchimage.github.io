@@ -193,10 +193,10 @@
 
 <p>我们每次使用命令</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@gitlab.xxx.com:xxxxx.git
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="err">@</span><span class="n">gitlab</span><span class="p">.</span><span class="n">xxx</span><span class="p">.</span><span class="n">com</span><span class="o">:</span><span class="n">xxxxx</span><span class="p">.</span><span class="n">git</span>
 </code></pre></div></div>
 
-<p>默认 clone 的是这个仓库的 master 分支。如果最新的代码不在 master 分支上，该如何拿到呢？如下图所示，最新的代码可能在<code class="highlighter-rouge">daily/1.4.1</code>分支上，我们希望拿到这个分支上的代码。</p>
+<p>默认 clone 的是这个仓库的 master 分支。如果最新的代码不在 master 分支上，该如何拿到呢？如下图所示，最新的代码可能在<code class="language-c++ highlighter-rouge"><span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span></code>分支上，我们希望拿到这个分支上的代码。</p>
 
 <p><img src="https://ooo.0o0.ooo/2016/07/07/577e349ab42ed.png" alt="7f07c8f6deef169ef6be5103bbd3e932f8676bb1.png" /></p>
 
@@ -206,27 +206,27 @@
 
 <p>直接使用命令</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -r #查看远程分支
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">r</span> <span class="err">#查看远程分支</span>
 </code></pre></div></div>
 <p>或</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -a #查看所有分支
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">a</span> <span class="err">#查看所有分支</span>
 </code></pre></div></div>
 
 <p>会显示</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>origin/HEAD -&gt; origin/master
-origin/daily/1.2.2
-origin/daily/1.3.0
-origin/daily/1.4.1
-origin/develop
-origin/feature/daily-1.0.0
-origin/master
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">origin</span><span class="o">/</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span>
+<span class="n">origin</span><span class="o">/</span><span class="n">daily</span><span class="o">/</span><span class="mf">1.2.2</span>
+<span class="n">origin</span><span class="o">/</span><span class="n">daily</span><span class="o">/</span><span class="mf">1.3.0</span>
+<span class="n">origin</span><span class="o">/</span><span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span>
+<span class="n">origin</span><span class="o">/</span><span class="n">develop</span>
+<span class="n">origin</span><span class="o">/</span><span class="n">feature</span><span class="o">/</span><span class="n">daily</span><span class="o">-</span><span class="mf">1.0.0</span>
+<span class="n">origin</span><span class="o">/</span><span class="n">master</span>
 </code></pre></div></div>
 
 <p>然后直接</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout origin/daily/1.4.1
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">origin</span><span class="o">/</span><span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span>
 </code></pre></div></div>
 
 <p>就好了。。。</p>
@@ -237,38 +237,38 @@ origin/master
 
 <p>我们在本地先建立一个分支，建议名称和远程的想要同步的分支名称一样。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch daily/1.4.1
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">branch</span> <span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span>
 </code></pre></div></div>
 
 <p>在切换到这个本地分支</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout daily/1.4.1
-# Switched to branch 'daily/1.4.1'
-</code></pre></div></div>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span>
+<span class="cp"># Switched to branch 'daily/1.4.1'
+</span></code></pre></div></div>
 
-<p>接下来就可以去建立上游分支的关联了，但是这个命令比较长，不好记，我们可以直接先<code class="highlighter-rouge">pull</code>一下，git 会提示我们相应的操作和命令。</p>
+<p>接下来就可以去建立上游分支的关联了，但是这个命令比较长，不好记，我们可以直接先<code class="language-c++ highlighter-rouge"><span class="n">pull</span></code>一下，git 会提示我们相应的操作和命令。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
-There is no tracking information for the current branch.
-Please specify which branch you want to merge with.
-See git-pull(1) for details.
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">pull</span>
+<span class="n">There</span> <span class="n">is</span> <span class="n">no</span> <span class="n">tracking</span> <span class="n">information</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">branch</span><span class="p">.</span>
+<span class="n">Please</span> <span class="n">specify</span> <span class="n">which</span> <span class="n">branch</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">merge</span> <span class="n">with</span><span class="p">.</span>
+<span class="n">See</span> <span class="n">git</span><span class="o">-</span><span class="n">pull</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">details</span><span class="p">.</span>
 
-    git pull &lt;remote&gt; &lt;branch&gt;
+    <span class="n">git</span> <span class="n">pull</span> <span class="o">&lt;</span><span class="n">remote</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
 
-If you wish to set tracking information for this branch you can do so with:
+<span class="n">If</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">set</span> <span class="n">tracking</span> <span class="n">information</span> <span class="k">for</span> <span class="k">this</span> <span class="n">branch</span> <span class="n">you</span> <span class="n">can</span> <span class="k">do</span> <span class="n">so</span> <span class="n">with</span><span class="o">:</span>
 
-    git branch --set-upstream-to=origin/&lt;branch&gt; daily/1.4.1
+    <span class="n">git</span> <span class="n">branch</span> <span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">upstream</span><span class="o">-</span><span class="n">to</span><span class="o">=</span><span class="n">origin</span><span class="o">/&lt;</span><span class="n">branch</span><span class="o">&gt;</span> <span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span>
 </code></pre></div></div>
 
 <p>我们看到最后一行，执行这个命令，即可完成与上游分支的关联。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch --set-upstream-to=origin/daily/1.4.1 daily/1.4.1
-# Branch daily/1.4.1 set up to track remote branch daily/1.4.1 from origin.
-</code></pre></div></div>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">branch</span> <span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">upstream</span><span class="o">-</span><span class="n">to</span><span class="o">=</span><span class="n">origin</span><span class="o">/</span><span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span> <span class="n">daily</span><span class="o">/</span><span class="mf">1.4.1</span>
+<span class="cp"># Branch daily/1.4.1 set up to track remote branch daily/1.4.1 from origin.
+</span></code></pre></div></div>
 
-<p>然后再<code class="highlighter-rouge">pull</code>一下就好了！</p>
+<p>然后再<code class="language-c++ highlighter-rouge"><span class="n">pull</span></code>一下就好了！</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">pull</span>
 </code></pre></div></div>
 
         </article>

@@ -371,9 +371,9 @@
 <span class="p">};</span>
 </code></pre></div></div>
 
-<p>例1中得到的结果是 3，而例2中是 <code class="highlighter-rouge">Uncaught TypeError: add is not a function</code>。</p>
+<p>例1中得到的结果是 3，而例2中是 <code class="language-c++ highlighter-rouge"><span class="n">Uncaught</span> <span class="n">TypeError</span><span class="o">:</span> <span class="n">add</span> <span class="n">is</span> <span class="n">not</span> <span class="n">a</span> <span class="n">function</span></code>。</p>
 
-<p>因为函数和变量在声明的时候，会被前置到当前作用域的顶端。例1将函数声明 <code class="highlighter-rouge">function add(a, b)</code> 前置到作用域前端，例2将声明 <code class="highlighter-rouge">var add</code> 前置到其作用域的前端了，并没有赋值。<strong>赋值的过程是在函数执行到响应位置的时候才进行的</strong>。</p>
+<p>因为函数和变量在声明的时候，会被前置到当前作用域的顶端。例1将函数声明 <code class="language-c++ highlighter-rouge"><span class="n">function</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></code> 前置到作用域前端，例2将声明 <code class="language-c++ highlighter-rouge"><span class="n">var</span> <span class="n">add</span></code> 前置到其作用域的前端了，并没有赋值。<strong>赋值的过程是在函数执行到响应位置的时候才进行的</strong>。</p>
 
 <h3 id="function-构造器">Function 构造器</h3>
 
@@ -417,9 +417,9 @@
 </code></pre></div></div>
 
 <ul>
-  <li><code class="highlighter-rouge">foo.name</code> 函数名</li>
-  <li><code class="highlighter-rouge">foo.length</code> 形参个数</li>
-  <li><code class="highlighter-rouge">arguments.length</code> 实参个数</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">foo</span><span class="p">.</span><span class="n">name</span></code> 函数名</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">foo</span><span class="p">.</span><span class="n">length</span></code> 形参个数</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">arguments</span><span class="p">.</span><span class="n">length</span></code> 实参个数</li>
 </ul>
 
 <p>未传参数时，arguments[i] 相应的位置仍然是 undefined。</p>
@@ -428,7 +428,7 @@
 
 <ul>
   <li>
-    <p>关于 <code class="highlighter-rouge">callee</code></p>
+    <p>关于 <code class="language-c++ highlighter-rouge"><span class="n">callee</span></code></p>
 
     <p>callee 属性的初始值就是正被执行的 Function 对象。</p>
 
@@ -455,12 +455,12 @@
   <li>call/apply 的第一个参数为对象，即使不是对象，也会被包装为对象。</li>
   <li>call 为扁平化传参，apply 后面的参数为数组</li>
   <li>传入 null/undefined 时，实际为 Window 对象</li>
-  <li>在严格模式下：上述代码最后两行分别输出 <code class="highlighter-rouge">null</code>, <code class="highlighter-rouge">undefined</code></li>
+  <li>在严格模式下：上述代码最后两行分别输出 <code class="language-c++ highlighter-rouge"><span class="n">null</span></code>, <code class="language-c++ highlighter-rouge"><span class="n">undefined</span></code></li>
 </ul>
 
 <h3 id="bind-方法">bind 方法</h3>
 
-<p><code class="highlighter-rouge">bind</code> 是 ES5 中提出的方法，所以浏览器支持为 IE9+ 及现代浏览器。</p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">bind</span></code> 是 ES5 中提出的方法，所以浏览器支持为 IE9+ 及现代浏览器。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">module</span> <span class="o">=</span> <span class="p">{</span>
@@ -479,12 +479,12 @@
 <span class="nx">boundGetX</span><span class="p">();</span> <span class="c1">//81</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">bind</code> 主要用于改变函数中的 <code class="highlighter-rouge">this</code></p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">bind</span></code> 主要用于改变函数中的 <code class="language-c++ highlighter-rouge"><span class="k">this</span></code></p>
 
 <ul>
-  <li><code class="highlighter-rouge">module.getX(); </code> 直接通过对象调用自己的方法，结果是 81</li>
-  <li><code class="highlighter-rouge">var getX = module.getX;</code> 将这个方法赋值给一个全局变量，这时 this 指向了 Window，所以结果为 9</li>
-  <li><code class="highlighter-rouge">var boundGetX = getX.bind(module);</code> 使用 bind 绑定了自己的对象，这样 this 仍然指向 module 对象，所以结果为 81</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">module</span><span class="p">.</span><span class="n">getX</span><span class="p">();</span> </code> 直接通过对象调用自己的方法，结果是 81</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">var</span> <span class="n">getX</span> <span class="o">=</span> <span class="n">module</span><span class="p">.</span><span class="n">getX</span><span class="p">;</span></code> 将这个方法赋值给一个全局变量，这时 this 指向了 Window，所以结果为 9</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">var</span> <span class="n">boundGetX</span> <span class="o">=</span> <span class="n">getX</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="n">module</span><span class="p">);</span></code> 使用 bind 绑定了自己的对象，这样 this 仍然指向 module 对象，所以结果为 81</li>
 </ul>
 
 <h4 id="bind-与-currying">bind 与 currying</h4>
@@ -508,9 +508,9 @@
 
 <p>add 函数拥有 3 个参数。我们想先传入一个参数，再去传其他参数。</p>
 
-<p><code class="highlighter-rouge">var func = add.bind(undefined, 100);</code> add 函数对象调用 bind 方法，由于不需要将 this 指向原来的 add 函数对象，所以第一个参数写为 undefined 或 null。第二个参数 100 传给了 add 函数中的形参 a，并赋值给一个新的函数对象 func。</p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">var</span> <span class="n">func</span> <span class="o">=</span> <span class="n">add</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="n">undefined</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span></code> add 函数对象调用 bind 方法，由于不需要将 this 指向原来的 add 函数对象，所以第一个参数写为 undefined 或 null。第二个参数 100 传给了 add 函数中的形参 a，并赋值给一个新的函数对象 func。</p>
 
-<p>这时，<code class="highlighter-rouge">func(1, 2)</code> 即相当于传入后两个参数，所以结果为 103。</p>
+<p>这时，<code class="language-c++ highlighter-rouge"><span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></code> 即相当于传入后两个参数，所以结果为 103。</p>
 
 <p>同理，基于 func 可以创造一个函数 func2。它只用传最后一个参数。</p>
 
@@ -531,11 +531,11 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nx">func</span><span class="p">());</span> <span class="c1">//foo {b: 100}</span>
 </code></pre></div></div>
 
-<p>对于使用了 <code class="highlighter-rouge">new func()</code> 这种方式创建对象，其返回值为一个对象。</p>
+<p>对于使用了 <code class="language-c++ highlighter-rouge"><span class="k">new</span> <span class="n">func</span><span class="p">()</span></code> 这种方式创建对象，其返回值为一个对象。</p>
 
-<p>而原函数 foo 的返回值不是对象，所以会直接忽视这个 return 方法。而是变为 <code class="highlighter-rouge">return this;</code>。并且 this 会被初始化为一个空对象，这个空对象的原型指向 foo.prototype。所以后面的 bind 是不起作用的。</p>
+<p>而原函数 foo 的返回值不是对象，所以会直接忽视这个 return 方法。而是变为 <code class="language-c++ highlighter-rouge"><span class="k">return</span> <span class="k">this</span><span class="p">;</span></code>。并且 this 会被初始化为一个空对象，这个空对象的原型指向 foo.prototype。所以后面的 bind 是不起作用的。</p>
 
-<p>这里面这个 this 对象包含一个属性 <code class="highlighter-rouge">b = 100</code>。所以返回的是对象 <code class="highlighter-rouge">{b: 100}</code>。</p>
+<p>这里面这个 this 对象包含一个属性 <code class="language-c++ highlighter-rouge"><span class="n">b</span> <span class="o">=</span> <span class="mi">100</span></code>。所以返回的是对象 <code class="language-c++ highlighter-rouge"><span class="p">{</span><span class="n">b</span><span class="o">:</span> <span class="mi">100</span><span class="p">}</span></code>。</p>
 
         </article>
         <hr>

@@ -221,7 +221,7 @@
 
 <p>JavaScript 通过构造器函数产生对象。</p>
 
-<p>构造器调用模式，即用<code class="highlighter-rouge">new</code>前缀去调用一个函数。</p>
+<p>构造器调用模式，即用<code class="language-c++ highlighter-rouge"><span class="k">new</span></code>前缀去调用一个函数。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Mammal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
@@ -239,7 +239,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myMammal</span><span class="p">.</span><span class="nx">getName</span><span class="p">())</span> <span class="c1">//Herb</span>
 </code></pre></div></div>
 
-<p>书中不推荐这样的写法。有很多风险。若忘记添加<code class="highlighter-rouge">new</code>前缀，<code class="highlighter-rouge">this</code>无法绑定到新的对象上。而是绑定到了全局对象上，破坏了全局变量环境。</p>
+<p>书中不推荐这样的写法。有很多风险。若忘记添加<code class="language-c++ highlighter-rouge"><span class="k">new</span></code>前缀，<code class="language-c++ highlighter-rouge"><span class="k">this</span></code>无法绑定到新的对象上。而是绑定到了全局对象上，破坏了全局变量环境。</p>
 
 <h3 id="对象说明符">对象说明符</h3>
 
@@ -334,11 +334,11 @@
 
 <h3 id="长度">长度</h3>
 
-<p>JavaScript 数组的<code class="highlighter-rouge">length</code>属性是没有上界的。如果用大于或等于当前<code class="highlighter-rouge">length</code>的数字作为下标来存储一个元素，那么<code class="highlighter-rouge">length</code>值会被增大以容纳新元素，不会发生数组越界错误。</p>
+<p>JavaScript 数组的<code class="language-c++ highlighter-rouge"><span class="n">length</span></code>属性是没有上界的。如果用大于或等于当前<code class="language-c++ highlighter-rouge"><span class="n">length</span></code>的数字作为下标来存储一个元素，那么<code class="language-c++ highlighter-rouge"><span class="n">length</span></code>值会被增大以容纳新元素，不会发生数组越界错误。</p>
 
 <h3 id="删除">删除</h3>
 
-<p>数组也是对象，可以用<code class="highlighter-rouge">delete</code>来删除元素</p>
+<p>数组也是对象，可以用<code class="language-c++ highlighter-rouge"><span class="k">delete</span></code>来删除元素</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'one'</span><span class="p">,</span> <span class="s1">'two'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'four'</span><span class="p">,</span> <span class="s1">'wu'</span><span class="p">]</span>
 
@@ -347,7 +347,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="c1">//5</span>
 </code></pre></div></div>
 
-<p>可以使用<code class="highlighter-rouge">splice</code>方法，进行删除和修改操作。</p>
+<p>可以使用<code class="language-c++ highlighter-rouge"><span class="n">splice</span></code>方法，进行删除和修改操作。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">numbers</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">//two</span>
@@ -356,7 +356,7 @@
 
 <h3 id="枚举">枚举</h3>
 
-<p>使用常规<code class="highlighter-rouge">for</code>循环即可，可以保证数组的顺序。</p>
+<p>使用常规<code class="language-c++ highlighter-rouge"><span class="k">for</span></code>循环即可，可以保证数组的顺序。</p>
 
 <h3 id="容易混淆的地方">容易混淆的地方</h3>
 
@@ -365,7 +365,7 @@
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1">//object</span>
 </code></pre></div></div>
 
-<p>返回数组的类型是<code class="highlighter-rouge">object</code>，没有任何意义。</p>
+<p>返回数组的类型是<code class="language-c++ highlighter-rouge"><span class="n">object</span></code>，没有任何意义。</p>
 
 <p>判断数组类型的方法</p>
 
@@ -382,9 +382,9 @@
 
 <h3 id="方法">方法</h3>
 
-<p>数组的方法被存储在<code class="highlighter-rouge">Array.prototype</code>中的函数。</p>
+<p>数组的方法被存储在<code class="language-c++ highlighter-rouge"><span class="n">Array</span><span class="p">.</span><span class="n">prototype</span></code>中的函数。</p>
 
-<p>数组是对象，因此<code class="highlighter-rouge">Array.prototype</code>也是可扩充的。</p>
+<p>数组是对象，因此<code class="language-c++ highlighter-rouge"><span class="n">Array</span><span class="p">.</span><span class="n">prototype</span></code>也是可扩充的。</p>
 
 <h3 id="指定初始值">指定初始值</h3>
 
@@ -750,7 +750,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="/2016/05/05/regular-expression-group/">浅谈正则表达式中的分组和引用
+                            <a href="/2016/05/06/regular-expression-group/">浅谈正则表达式中的分组和引用
                             
                             </a>
                         </li>

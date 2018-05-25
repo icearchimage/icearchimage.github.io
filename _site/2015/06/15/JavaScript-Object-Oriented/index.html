@@ -194,14 +194,14 @@
         </ul>
       </li>
       <li><a href="#原型链" id="markdown-toc-原型链">原型链</a>        <ul>
-          <li><a href="#objectcreatenull--bindnull" id="markdown-toc-objectcreatenull--bindnull"><code class="highlighter-rouge">Object.create(null)</code> &amp; <code class="highlighter-rouge">.bind(null)</code></a></li>
+          <li><a href="#objectcreatenull--bindnull" id="markdown-toc-objectcreatenull--bindnull"><code class="language-c++ highlighter-rouge"><span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">null</span><span class="p">)</span></code> &amp; <code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="n">null</span><span class="p">)</span></code></a></li>
         </ul>
       </li>
     </ul>
   </li>
   <li><a href="#prototype-属性" id="markdown-toc-prototype-属性">prototype 属性</a>    <ul>
       <li><a href="#改变-prototype" id="markdown-toc-改变-prototype">改变 prototype</a></li>
-      <li><a href="#内置构造器的-prototype-属性" id="markdown-toc-内置构造器的-prototype-属性">内置构造器的 <code class="highlighter-rouge">prototype</code> 属性</a></li>
+      <li><a href="#内置构造器的-prototype-属性" id="markdown-toc-内置构造器的-prototype-属性">内置构造器的 <code class="language-c++ highlighter-rouge"><span class="n">prototype</span></code> 属性</a></li>
       <li><a href="#创建对象-new原型链" id="markdown-toc-创建对象-new原型链">创建对象-new/原型链</a></li>
     </ul>
   </li>
@@ -230,23 +230,23 @@
 
 <h2 id="基于原型的继承">基于原型的继承</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function Foo() {
-    this.y = 2;
-}
-console.log(typeof Foo.prototype); //object
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">Foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">typeof</span> <span class="n">Foo</span><span class="p">.</span><span class="n">prototype</span><span class="p">);</span> <span class="c1">//object</span>
 
-Foo.prototype.x = 1;
-var obj3 = new Foo();
+<span class="n">Foo</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">obj3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="p">();</span>
 
-console.log(obj3.y); //2
-console.log(obj3.x); //1
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj3</span><span class="p">.</span><span class="n">y</span><span class="p">);</span> <span class="c1">//2</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj3</span><span class="p">.</span><span class="n">x</span><span class="p">);</span> <span class="c1">//1</span>
 </code></pre></div></div>
 
-<p>创建函数 <code class="highlighter-rouge">Foo</code> 的时候，就会有一个内置的 <code class="highlighter-rouge">Foo.prototype</code> 属性，并且这个属性是对象。</p>
+<p>创建函数 <code class="language-c++ highlighter-rouge"><span class="n">Foo</span></code> 的时候，就会有一个内置的 <code class="language-c++ highlighter-rouge"><span class="n">Foo</span><span class="p">.</span><span class="n">prototype</span></code> 属性，并且这个属性是对象。</p>
 
-<p>在使用 <code class="highlighter-rouge">new Foo();</code> 创建对象实例时。<code class="highlighter-rouge">this</code> 会指向一个对象，并且这个对象的原型会指向 <code class="highlighter-rouge">Foo.prototype</code> 属性。<code class="highlighter-rouge">this.y = 2</code> 给这个对象赋值，并把这个对象返回。把这个对象赋值给 <code class="highlighter-rouge">obj3</code>。</p>
+<p>在使用 <code class="language-c++ highlighter-rouge"><span class="k">new</span> <span class="n">Foo</span><span class="p">();</span></code> 创建对象实例时。<code class="language-c++ highlighter-rouge"><span class="k">this</span></code> 会指向一个对象，并且这个对象的原型会指向 <code class="language-c++ highlighter-rouge"><span class="n">Foo</span><span class="p">.</span><span class="n">prototype</span></code> 属性。<code class="language-c++ highlighter-rouge"><span class="k">this</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span></code> 给这个对象赋值，并把这个对象返回。把这个对象赋值给 <code class="language-c++ highlighter-rouge"><span class="n">obj3</span></code>。</p>
 
-<p><code class="highlighter-rouge">y</code> 是 <code class="highlighter-rouge">obj3</code> 上的，<code class="highlighter-rouge">x</code> 是 <code class="highlighter-rouge">obj3</code> 的原型 <code class="highlighter-rouge">Foo.prototype</code> 上的。</p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">y</span></code> 是 <code class="language-c++ highlighter-rouge"><span class="n">obj3</span></code> 上的，<code class="language-c++ highlighter-rouge"><span class="n">x</span></code> 是 <code class="language-c++ highlighter-rouge"><span class="n">obj3</span></code> 的原型 <code class="language-c++ highlighter-rouge"><span class="n">Foo</span><span class="p">.</span><span class="n">prototype</span></code> 上的。</p>
 
 <p><img src="http://7q5cdt.com1.z0.glb.clouddn.com/blog-prototype.png" alt="prototype" /></p>
 
@@ -262,50 +262,50 @@ console.log(obj3.x); //1
 
 <h4 id="例">例</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span>
 
-Person.prototype.LEGS_NUM = 2;
-Person.prototype.ARMS_NUM = 2;
+<span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">LEGS_NUM</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">ARMS_NUM</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
-Person.prototype.hi = function() {
-    console.log('Hi, my name is ' + this.name + ". I'm " + this.age + ' years old now');
-};
+<span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">hi</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">Hi</span><span class="p">,</span> <span class="n">my</span> <span class="n">name</span> <span class="n">is</span> <span class="err">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">". I'm "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="n">age</span> <span class="o">+</span> <span class="err">'</span> <span class="n">years</span> <span class="n">old</span> <span class="n">now</span><span class="err">'</span><span class="p">);</span>
+<span class="p">};</span>
 
-Person.prototype.walking = function() {
-    console.log(this.name + ' is walking...');
-};
+<span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">walking</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="err">'</span> <span class="n">is</span> <span class="n">walking</span><span class="p">...</span><span class="err">'</span><span class="p">);</span>
+<span class="p">};</span>
 
-function Student(name, age, className) {
-    Person.call(this, name, age); //使 Person 中的 this 指向 Student
-    this.className = className;
-}
+<span class="n">function</span> <span class="nf">Student</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">className</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Person</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span> <span class="c1">//使 Person 中的 this 指向 Student</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">className</span> <span class="o">=</span> <span class="n">className</span><span class="p">;</span>
+<span class="p">}</span>
 
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">);</span>
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">constructor</span> <span class="o">=</span> <span class="n">Student</span><span class="p">;</span>
 
-Student.prototype.hi = function() {
-    console.log('Hi, my name is ' + this.name + ". I'm " + this.age + ' years old now, and from ' + this.className + ".");
-};
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">hi</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">Hi</span><span class="p">,</span> <span class="n">my</span> <span class="n">name</span> <span class="n">is</span> <span class="err">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">". I'm "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="n">age</span> <span class="o">+</span> <span class="err">'</span> <span class="n">years</span> <span class="n">old</span> <span class="n">now</span><span class="p">,</span> <span class="n">and</span> <span class="n">from</span> <span class="err">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="n">className</span> <span class="o">+</span> <span class="s">"."</span><span class="p">);</span>
+<span class="p">};</span>
 
-Student.prototype.learn = function(subject) {
-    console.log(this.name + ' is learning ' + subject + ' at ' + this.className + '.');
-}
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">learn</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="err">'</span> <span class="n">is</span> <span class="n">learning</span> <span class="err">'</span> <span class="o">+</span> <span class="n">subject</span> <span class="o">+</span> <span class="err">'</span> <span class="n">at</span> <span class="err">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="n">className</span> <span class="o">+</span> <span class="sc">'.'</span><span class="p">);</span>
+<span class="p">}</span>
 
-//test
-var gao = new Student('Gao', '24', 'Class 3123');
-console.log(gao); // 这个对象的具体内容见下图
-gao.hi(); //Hi, my name is Gao. I'm 24 years old now, and from Class 3123.
-gao.LEGS_NUM; //2
-gao.walking(); //Gao is walking...
-gao.learn('JavaScript'); //Gao is learning JavaScript at Class 3123.
+<span class="c1">//test</span>
+<span class="n">var</span> <span class="n">gao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="err">'</span><span class="n">Gao</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="mi">24</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="n">Class</span> <span class="mi">3123</span><span class="err">'</span><span class="p">);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">gao</span><span class="p">);</span> <span class="c1">// 这个对象的具体内容见下图</span>
+<span class="n">gao</span><span class="p">.</span><span class="n">hi</span><span class="p">();</span> <span class="c1">//Hi, my name is Gao. I'm 24 years old now, and from Class 3123.</span>
+<span class="n">gao</span><span class="p">.</span><span class="n">LEGS_NUM</span><span class="p">;</span> <span class="c1">//2</span>
+<span class="n">gao</span><span class="p">.</span><span class="n">walking</span><span class="p">();</span> <span class="c1">//Gao is walking...</span>
+<span class="n">gao</span><span class="p">.</span><span class="n">learn</span><span class="p">(</span><span class="err">'</span><span class="n">JavaScript</span><span class="err">'</span><span class="p">);</span> <span class="c1">//Gao is learning JavaScript at Class 3123.</span>
 </code></pre></div></div>
 
 <ul>
-  <li><code class="highlighter-rouge">Object.create(arg)</code> 创建一个空对象，并且这个对象的原型指向参数 <code class="highlighter-rouge">arg</code>。</li>
-  <li><code class="highlighter-rouge">Student.prototype.constructor = Student</code> 为了保证一致性，否则 constructor 指向 Person。</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span></code> 创建一个空对象，并且这个对象的原型指向参数 <code class="language-c++ highlighter-rouge"><span class="n">arg</span></code>。</li>
+  <li><code class="language-c++ highlighter-rouge"><span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">constructor</span> <span class="o">=</span> <span class="n">Student</span></code> 为了保证一致性，否则 constructor 指向 Person。</li>
 </ul>
 
 <hr />
@@ -322,11 +322,11 @@ gao.learn('JavaScript'); //Gao is learning JavaScript at Class 3123.
 
 <hr />
 
-<h4 id="objectcreatenull--bindnull"><code class="highlighter-rouge">Object.create(null)</code> &amp; <code class="highlighter-rouge">.bind(null)</code></h4>
+<h4 id="objectcreatenull--bindnull"><code class="language-c++ highlighter-rouge"><span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">null</span><span class="p">)</span></code> &amp; <code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="n">null</span><span class="p">)</span></code></h4>
 
 <p>这两种算是特例。</p>
 
-<p><code class="highlighter-rouge">Object.create(null)</code> 和 <code class="highlighter-rouge">.bind(null)</code> 这两种方式创建出来的对象是没有 <code class="highlighter-rouge">prototype</code> 属性的，为 <code class="highlighter-rouge">undefined</code>。</p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">null</span><span class="p">)</span></code> 和 <code class="language-c++ highlighter-rouge"><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="n">null</span><span class="p">)</span></code> 这两种方式创建出来的对象是没有 <code class="language-c++ highlighter-rouge"><span class="n">prototype</span></code> 属性的，为 <code class="language-c++ highlighter-rouge"><span class="n">undefined</span></code>。</p>
 
 <hr />
 
@@ -340,66 +340,66 @@ gao.learn('JavaScript'); //Gao is learning JavaScript at Class 3123.
 
 <p>但是，直接修改 prototype 属性，是不会影响到已经创建好的实例对象的。但是会影响到新的实例对象。如下代码：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 上接上面的代码
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 上接上面的代码</span>
 
-// 给 prototype 添加或删除一些属性
-Student.prototype.x = 101;
-console.log(gao.x); //101
+<span class="c1">// 给 prototype 添加或删除一些属性</span>
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">101</span><span class="p">;</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">gao</span><span class="p">.</span><span class="n">x</span><span class="p">);</span> <span class="c1">//101</span>
 
-// 直接修改 prototype 属性
-Student.prototype = {
-    y: 2
-};
+<span class="c1">// 直接修改 prototype 属性</span>
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">y</span><span class="o">:</span> <span class="mi">2</span>
+<span class="p">};</span>
 
-// 不会影响到已创建好的实例对象
-console.log(gao.x); //101
-console.log(gao.y); //undefined
+<span class="c1">// 不会影响到已创建好的实例对象</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">gao</span><span class="p">.</span><span class="n">x</span><span class="p">);</span> <span class="c1">//101</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">gao</span><span class="p">.</span><span class="n">y</span><span class="p">);</span> <span class="c1">//undefined</span>
 
-// 会影响到新创建的实例对象
-var ying = new Student('Ying', 24, 'UI');
-console.log(ying.x); //undefined
-console.log(ying.y); //2
+<span class="c1">// 会影响到新创建的实例对象</span>
+<span class="n">var</span> <span class="n">ying</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="err">'</span><span class="n">Ying</span><span class="err">'</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="err">'</span><span class="n">UI</span><span class="err">'</span><span class="p">);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">ying</span><span class="p">.</span><span class="n">x</span><span class="p">);</span> <span class="c1">//undefined</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">ying</span><span class="p">.</span><span class="n">y</span><span class="p">);</span> <span class="c1">//2</span>
 </code></pre></div></div>
 
 <hr />
 
-<h3 id="内置构造器的-prototype-属性">内置构造器的 <code class="highlighter-rouge">prototype</code> 属性</h3>
+<h3 id="内置构造器的-prototype-属性">内置构造器的 <code class="language-c++ highlighter-rouge"><span class="n">prototype</span></code> 属性</h3>
 
-<p>修改内置构造器的 <code class="highlighter-rouge">prototype</code> 属性后，在实例化这个对象后，枚举其属性时，会把修改的内置构造器的 <code class="highlighter-rouge">prototype</code> 属性也枚举出来，有时候这是要避免的。可用 <code class="highlighter-rouge">defineProperty</code> 方法解决。如下代码：</p>
+<p>修改内置构造器的 <code class="language-c++ highlighter-rouge"><span class="n">prototype</span></code> 属性后，在实例化这个对象后，枚举其属性时，会把修改的内置构造器的 <code class="language-c++ highlighter-rouge"><span class="n">prototype</span></code> 属性也枚举出来，有时候这是要避免的。可用 <code class="language-c++ highlighter-rouge"><span class="n">defineProperty</span></code> 方法解决。如下代码：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Object.prototype.x = 1;
-var obj = {};
-console.log(obj.x); //1
-console.log(obj);
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Object</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span><span class="p">);</span> <span class="c1">//1</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
 
-for (var k in obj) {
-    console.log('result---&gt;' + k);
-}
-// result---&gt;x
+<span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">k</span> <span class="n">in</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">result</span><span class="o">---&gt;</span><span class="err">'</span> <span class="o">+</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// result---&gt;x</span>
 </code></pre></div></div>
 
-<p>使用 <code class="highlighter-rouge">defineProperty</code> 后：</p>
+<p>使用 <code class="language-c++ highlighter-rouge"><span class="n">defineProperty</span></code> 后：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Object.defineProperty(Object.prototype, 'x', {
-    writable: true,
-    value: 1
-});
-var obj = {};
-console.log(obj.x);//1
-console.log(obj);
-for (var k in obj) {
-    console.log('result---&gt;' + k);
-}
-// nothing output here
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Object</span><span class="p">.</span><span class="n">defineProperty</span><span class="p">(</span><span class="n">Object</span><span class="p">.</span><span class="n">prototype</span><span class="p">,</span> <span class="sc">'x'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">writable</span><span class="o">:</span> <span class="nb">true</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">});</span>
+<span class="n">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span><span class="p">);</span><span class="c1">//1</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">k</span> <span class="n">in</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">result</span><span class="o">---&gt;</span><span class="err">'</span> <span class="o">+</span> <span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// nothing output here</span>
 </code></pre></div></div>
 
-<p>其实也可以这样枚举，使用 <code class="highlighter-rouge">hasOwnProperty</code> 方法：</p>
+<p>其实也可以这样枚举，使用 <code class="language-c++ highlighter-rouge"><span class="n">hasOwnProperty</span></code> 方法：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-        console.log("result---&gt;" + key);
-    }
-}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">key</span> <span class="n">in</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">hasOwnProperty</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"result---&gt;"</span> <span class="o">+</span> <span class="n">key</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <hr />
@@ -412,32 +412,32 @@ for (var k in obj) {
 
 <h2 id="instanceof">instanceof</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>console.log([1, 2] instanceof Array); //true
-console.log([1, 2] instanceof Object); //true
-console.log(new Object() instanceof Array); //false
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="n">instanceof</span> <span class="n">Array</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="n">instanceof</span> <span class="n">Object</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="k">new</span> <span class="n">Object</span><span class="p">()</span> <span class="n">instanceof</span> <span class="n">Array</span><span class="p">);</span> <span class="c1">//false</span>
 </code></pre></div></div>
 
-<p>左边要求是对象，右边要求是构造器或函数。它会判断：<strong>右边的构造器中的 <code class="highlighter-rouge">prototype</code> 属性是否出现在左边的对象的原型链上。</strong></p>
+<p>左边要求是对象，右边要求是构造器或函数。它会判断：<strong>右边的构造器中的 <code class="language-c++ highlighter-rouge"><span class="n">prototype</span></code> 属性是否出现在左边的对象的原型链上。</strong></p>
 
 <ul>
-  <li><strong>注意：</strong>不同的 window 或 iframe 间的对象类型检测<strong>不能</strong>使用 <code class="highlighter-rouge">instanceof</code>！</li>
+  <li><strong>注意：</strong>不同的 window 或 iframe 间的对象类型检测<strong>不能</strong>使用 <code class="language-c++ highlighter-rouge"><span class="n">instanceof</span></code>！</li>
 </ul>
 
 <hr />
 
 <h2 id="实现继承的方式">实现继承的方式</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function Person() {}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">Person</span><span class="p">()</span> <span class="p">{}</span>
 
-function Student() {}
+<span class="n">function</span> <span class="nf">Student</span><span class="p">()</span> <span class="p">{}</span>
 
-Student.prototype = Person.prototype; //1
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">;</span> <span class="c1">//1</span>
 
-Student.prototype = new Person(); //2
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">();</span> <span class="c1">//2</span>
 
-Student.prototype = Object.create(Person.prototype); //3
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">);</span> <span class="c1">//3</span>
 
-Student.prototype.constructor = Student;
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">constructor</span> <span class="o">=</span> <span class="n">Student</span><span class="p">;</span>
 </code></pre></div></div>
 
 <p>注释中：</p>
@@ -446,50 +446,50 @@ Student.prototype.constructor = Student;
 
 <p>2 可以实现继承，但是其调用了构造函数，若父类构造函数中有形参，那么传值就会比较奇怪。</p>
 
-<p>3 是最好的方法。创建了一个空对象，并且对象的原型指向参数 Person.prototype。这样便实现了继承。同时原型链写，不向上查找。但是 <code class="highlighter-rouge">Object.create</code> 是ES5 中的方法，所以可以使用下列代码做兼容：</p>
+<p>3 是最好的方法。创建了一个空对象，并且对象的原型指向参数 Person.prototype。这样便实现了继承。同时原型链写，不向上查找。但是 <code class="language-c++ highlighter-rouge"><span class="n">Object</span><span class="p">.</span><span class="n">create</span></code> 是ES5 中的方法，所以可以使用下列代码做兼容：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (!Object.create) {
-    Object.create = function(proto) {
-        function F() {}
-        F.prototype = proto;
-        return new F;
-    };
-}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Object</span><span class="p">.</span><span class="n">create</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">proto</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">function</span> <span class="n">F</span><span class="p">()</span> <span class="p">{}</span>
+        <span class="n">F</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="n">proto</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">F</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <hr />
 
 <h2 id="模拟重载">模拟重载</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function Person() {
-    var args = arguments;
-    if (typeof args[0] === 'object' &amp;&amp; args[0]) {
-        if (args[0].name) {
-            this.name = args[0].name;
-        }
-        if(args[0].age){
-            this.age = args[0].age;
-        }
-    } else {
-        if (args[0]) {
-            this.name = args[0];
-        }
-        if (args[1]) {
-            this.age = args[1];
-        }
-    }
-}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">Person</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">var</span> <span class="n">args</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">typeof</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="err">'</span><span class="n">object</span><span class="err">'</span> <span class="o">&amp;&amp;</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">age</span><span class="p">){</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">age</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//重写 toString 方法
-Person.prototype.toString = function() {
-    console.log('name='+this.name+', age='+this.age);
-};
+<span class="c1">//重写 toString 方法</span>
+<span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">toString</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">name</span><span class="o">=</span><span class="err">'</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="o">+</span><span class="err">'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="err">'</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="n">age</span><span class="p">);</span>
+<span class="p">};</span>
 
-var gao = new Person({name:'Gao',age:24});
-gao.toString(); // name=Gao, age=24
+<span class="n">var</span> <span class="n">gao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">({</span><span class="n">name</span><span class="o">:</span><span class="err">'</span><span class="n">Gao</span><span class="err">'</span><span class="p">,</span><span class="n">age</span><span class="o">:</span><span class="mi">24</span><span class="p">});</span>
+<span class="n">gao</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span> <span class="c1">// name=Gao, age=24</span>
 
-var ying = new Person('Ying',25);
-ying.toString(); // name=Ying, age=25
+<span class="n">var</span> <span class="n">ying</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="err">'</span><span class="n">Ying</span><span class="err">'</span><span class="p">,</span><span class="mi">25</span><span class="p">);</span>
+<span class="n">ying</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span> <span class="c1">// name=Ying, age=25</span>
 </code></pre></div></div>
 
 <p>对参数进行判断，模拟实现重载。</p>
@@ -498,24 +498,24 @@ ying.toString(); // name=Ying, age=25
 
 <h2 id="调用子类方法">调用子类方法</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function Person(name) {
-    this.name = name;
-}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
 
-function Student(name, className) {
-    this.className = className;
-    Person.call(this, name); // 调用基类的构造器
-}
+<span class="n">function</span> <span class="nf">Student</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">className</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">className</span> <span class="o">=</span> <span class="n">className</span><span class="p">;</span>
+    <span class="n">Person</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span> <span class="c1">// 调用基类的构造器</span>
+<span class="p">}</span>
 
-var gao = new Student('Gao', '3123');
-console.log(gao); // Student {className: "3123", name: "Gao"}
+<span class="n">var</span> <span class="n">gao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="err">'</span><span class="n">Gao</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="mi">3123</span><span class="err">'</span><span class="p">);</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">gao</span><span class="p">);</span> <span class="c1">// Student {className: "3123", name: "Gao"}</span>
 
-Person.prototype.init = function() {};
+<span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{};</span>
 
-Student.prototype.init = function() {
-    // do sth...
-    Person.prototype.init.apply(this, arguments); // 同时也想调用父类被覆盖的方法
-};
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// do sth...</span>
+    <span class="n">Person</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">init</span><span class="p">.</span><span class="n">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">arguments</span><span class="p">);</span> <span class="c1">// 同时也想调用父类被覆盖的方法</span>
+<span class="p">};</span>
 </code></pre></div></div>
 
 <p>主要是两种：调用父类的构造器，调用原型链上父类被覆盖的方法。</p>
@@ -524,17 +524,17 @@ Student.prototype.init = function() {
 
 <h2 id="链式调用">链式调用</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function ClassManager() {}
-ClassManager.prototype.addClass = function(str) {
-    console.log('Class: ' + str + ' added');
-    return this;
-};
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">ClassManager</span><span class="p">()</span> <span class="p">{}</span>
+<span class="n">ClassManager</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">addClass</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">Class</span><span class="o">:</span> <span class="err">'</span> <span class="o">+</span> <span class="n">str</span> <span class="o">+</span> <span class="err">'</span> <span class="n">added</span><span class="err">'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span>
 
-var manager = new ClassManager();
-manager.addClass('classA').addClass('classB').addClass('classC');
-// Class: classA added
-// Class: classB added
-// Class: classC added
+<span class="n">var</span> <span class="n">manager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassManager</span><span class="p">();</span>
+<span class="n">manager</span><span class="p">.</span><span class="n">addClass</span><span class="p">(</span><span class="err">'</span><span class="n">classA</span><span class="err">'</span><span class="p">).</span><span class="n">addClass</span><span class="p">(</span><span class="err">'</span><span class="n">classB</span><span class="err">'</span><span class="p">).</span><span class="n">addClass</span><span class="p">(</span><span class="err">'</span><span class="n">classC</span><span class="err">'</span><span class="p">);</span>
+<span class="c1">// Class: classA added</span>
+<span class="c1">// Class: classB added</span>
+<span class="c1">// Class: classC added</span>
 </code></pre></div></div>
 
 <p>重点在于 return this。返回这个 ClassManager 的实例。这样这个实例又可以继续调用方法。</p>
@@ -543,97 +543,97 @@ manager.addClass('classA').addClass('classB').addClass('classC');
 
 <h2 id="抽象类">抽象类</h2>
 
-<p>在构造器中 <code class="highlighter-rouge">throw new Error('');</code> 抛异常。这样防止这个类被直接调用。</p>
+<p>在构造器中 <code class="language-c++ highlighter-rouge"><span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="err">''</span><span class="p">);</span></code> 抛异常。这样防止这个类被直接调用。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function DetectorBase() {
-    throw new Error('Abstract class can not be invoked directly!');
-}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">DetectorBase</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="err">'</span><span class="n">Abstract</span> <span class="k">class</span> <span class="nc">can</span> <span class="n">not</span> <span class="n">be</span> <span class="n">invoked</span> <span class="n">directly</span><span class="o">!</span><span class="err">'</span><span class="p">);</span>
+<span class="p">}</span>
 
-DetectorBase.detect = function() {
-    console.log('Detection starting...');
-}
-DetectorBase.stop = function() {
-    console.log('Detection stopped.');
-};
-DetectorBase.init = function() {
-    throw new Error('Error');
-}
+<span class="n">DetectorBase</span><span class="p">.</span><span class="n">detect</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">Detection</span> <span class="n">starting</span><span class="p">...</span><span class="err">'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">DetectorBase</span><span class="p">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">Detection</span> <span class="n">stopped</span><span class="p">.</span><span class="err">'</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="n">DetectorBase</span><span class="p">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="err">'</span><span class="n">Error</span><span class="err">'</span><span class="p">);</span>
+<span class="p">}</span>
 
-var d = new DetectorBase();// Uncaught Error: Abstract class can not be invoked directly!
+<span class="n">var</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DetectorBase</span><span class="p">();</span><span class="c1">// Uncaught Error: Abstract class can not be invoked directly!</span>
 
-function LinkDetector() {}
-LinkDetector.prototype = Object.create(DetectorBase.prototype);
-LinkDetector.prototype.constructor = LinkDetector;
+<span class="n">function</span> <span class="nf">LinkDetector</span><span class="p">()</span> <span class="p">{}</span>
+<span class="n">LinkDetector</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">DetectorBase</span><span class="p">.</span><span class="n">prototype</span><span class="p">);</span>
+<span class="n">LinkDetector</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">constructor</span> <span class="o">=</span> <span class="n">LinkDetector</span><span class="p">;</span>
 
-var l = new LinkDetector();
-console.log(l); //LinkDetector {}__proto__: LinkDetector
-l.detect(); //Uncaught TypeError: l.detect is not a function
-l.init(); //Uncaught TypeError: l.init is not a function
+<span class="n">var</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkDetector</span><span class="p">();</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">l</span><span class="p">);</span> <span class="c1">//LinkDetector {}__proto__: LinkDetector</span>
+<span class="n">l</span><span class="p">.</span><span class="n">detect</span><span class="p">();</span> <span class="c1">//Uncaught TypeError: l.detect is not a function</span>
+<span class="n">l</span><span class="p">.</span><span class="n">init</span><span class="p">();</span> <span class="c1">//Uncaught TypeError: l.init is not a function</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">var d = new DetectorBase();</code> 是不能实例化的，会报错</p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">var</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DetectorBase</span><span class="p">();</span></code> 是不能实例化的，会报错</p>
 
-<p><code class="highlighter-rouge">l.detect();</code> 但是这个为什么报错我就不知道了。</p>
+<p><code class="language-c++ highlighter-rouge"><span class="n">l</span><span class="p">.</span><span class="n">detect</span><span class="p">();</span></code> 但是这个为什么报错我就不知道了。</p>
 
 <p>已经在原课程下提问了，期待老师的讲解。 <a href="http://www.imooc.com/qadetail/82732">抽象类中子类为什么不能调用父类的非抽象方法？</a></p>
 
 <p>问题已经解决了，应该是老师当时的课件写错了，应该再基类中将这两个方法写在其原型 prototype 上。如下：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function DetectorBase() {
-    throw new Error('Abstract class can not be invoked directly!');
-}
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="nf">DetectorBase</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="err">'</span><span class="n">Abstract</span> <span class="k">class</span> <span class="nc">can</span> <span class="n">not</span> <span class="n">be</span> <span class="n">invoked</span> <span class="n">directly</span><span class="o">!</span><span class="err">'</span><span class="p">);</span>
+<span class="p">}</span>
 
-DetectorBase.prototype.detect = function() {
-    console.log('Detection starting...');
-};
-DetectorBase.prototype.stop = function() {
-    console.log('Detection stopped.');
-};
-DetectorBase.prototype.init = function() {
-    throw new Error('Error');
-};
+<span class="n">DetectorBase</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">detect</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">Detection</span> <span class="n">starting</span><span class="p">...</span><span class="err">'</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="n">DetectorBase</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="err">'</span><span class="n">Detection</span> <span class="n">stopped</span><span class="p">.</span><span class="err">'</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="n">DetectorBase</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="err">'</span><span class="n">Error</span><span class="err">'</span><span class="p">);</span>
+<span class="p">};</span>
 
-// var d = new DetectorBase();// Uncaught Error: Abstract class can not be invoked directly!
+<span class="c1">// var d = new DetectorBase();// Uncaught Error: Abstract class can not be invoked directly!</span>
 
-function LinkDetector() {}
-LinkDetector.prototype = Object.create(DetectorBase.prototype);
-LinkDetector.prototype.constructor = LinkDetector;
+<span class="n">function</span> <span class="nf">LinkDetector</span><span class="p">()</span> <span class="p">{}</span>
+<span class="n">LinkDetector</span><span class="p">.</span><span class="n">prototype</span> <span class="o">=</span> <span class="n">Object</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">DetectorBase</span><span class="p">.</span><span class="n">prototype</span><span class="p">);</span>
+<span class="n">LinkDetector</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">constructor</span> <span class="o">=</span> <span class="n">LinkDetector</span><span class="p">;</span>
 
-var l = new LinkDetector();
-console.log(l); //LinkDetector {}__proto__: LinkDetector
-l.detect(); //Detection starting...
-l.init(); //Uncaught Error: Error
+<span class="n">var</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkDetector</span><span class="p">();</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">l</span><span class="p">);</span> <span class="c1">//LinkDetector {}__proto__: LinkDetector</span>
+<span class="n">l</span><span class="p">.</span><span class="n">detect</span><span class="p">();</span> <span class="c1">//Detection starting...</span>
+<span class="n">l</span><span class="p">.</span><span class="n">init</span><span class="p">();</span> <span class="c1">//Uncaught Error: Error</span>
 </code></pre></div></div>
 
 <hr />
 
 <h2 id="模块化">模块化</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var moduleA;
-moduleA = function() {
-    var prop = 1;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">moduleA</span><span class="p">;</span>
+<span class="n">moduleA</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">var</span> <span class="n">prop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-    function func() {}
+    <span class="n">function</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{}</span>
 
-    return {
-        func: func,
-        prop: prop
-    };
-}(); // 立即执行匿名函数
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="n">func</span><span class="o">:</span> <span class="n">func</span><span class="p">,</span>
+        <span class="n">prop</span><span class="o">:</span> <span class="n">prop</span>
+    <span class="p">};</span>
+<span class="p">}();</span> <span class="c1">// 立即执行匿名函数</span>
 </code></pre></div></div>
 
 <p>prop，func 不会被泄露到全局作用域。</p>
 
 <p>或者另一种写法，使用 new</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>moduleA = new function() {
-    var prop = 1;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">moduleA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">var</span> <span class="n">prop</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-    function func() {}
+    <span class="n">function</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{}</span>
 
-    this.func = func;
-    this.prop = prop;
-}
+    <span class="k">this</span><span class="p">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">prop</span> <span class="o">=</span> <span class="n">prop</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p>更复杂的可以使用 Sea.js Kissy Require.js 模块化工具。</p>

@@ -218,9 +218,9 @@
 
 <h2 id="blob-对象">Blob 对象</h2>
 
-<p>Blob 对象是一个字节序列。拥有 <code class="highlighter-rouge">size</code> 和 <code class="highlighter-rouge">type</code> 等属性。</p>
+<p>Blob 对象是一个字节序列。拥有 <code class="language-c++ highlighter-rouge"><span class="n">size</span></code> 和 <code class="language-c++ highlighter-rouge"><span class="n">type</span></code> 等属性。</p>
 
-<p>拥有 2 个只读状态 <code class="highlighter-rouge">OPEND</code> 和 <code class="highlighter-rouge">CLOSED。</code></p>
+<p>拥有 2 个只读状态 <code class="language-c++ highlighter-rouge"><span class="n">OPEND</span></code> 和 <code class="language-c++ highlighter-rouge"><span class="n">CLOSED</span><span class="err">。</span></code></p>
 
 <p>Blob 对象属于 JavaScript Web APIs 中的 File API 规定的部分，可以参考 W3C 文档中的 <a href="https://www.w3.org/TR/2015/WD-FileAPI-20150421/#blob"> The Blob Interface and Binary Data</a></p>
 
@@ -238,13 +238,13 @@
   <li>DOMString [WebIDL] elements.</li>
 </ul>
 
-<p>所谓 <code class="highlighter-rouge">ArrayBuffer</code> 是一种用于呈现通用、固定长度的二进制数据的类型。详情可以参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer -MDN</a> 以及 <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-arraybuffer-objects">ECMAScript2015 标准中的 ArrayBuffer</a>。</p>
+<p>所谓 <code class="language-c++ highlighter-rouge"><span class="n">ArrayBuffer</span></code> 是一种用于呈现通用、固定长度的二进制数据的类型。详情可以参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer -MDN</a> 以及 <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-arraybuffer-objects">ECMAScript2015 标准中的 ArrayBuffer</a>。</p>
 
 <h2 id="blob-urls">Blob URLs</h2>
 
-<p>Blob URLs 被创建或注销是使用 <code class="highlighter-rouge">URL</code> 对象上的方法。这个 <code class="highlighter-rouge">URL</code> 对象被挂在 <code class="highlighter-rouge">Window</code> (HTML) 对象下，或者 <code class="highlighter-rouge">WorkerGlobalScope</code> (Web Workers)对象下。</p>
+<p>Blob URLs 被创建或注销是使用 <code class="language-c++ highlighter-rouge"><span class="n">URL</span></code> 对象上的方法。这个 <code class="language-c++ highlighter-rouge"><span class="n">URL</span></code> 对象被挂在 <code class="language-c++ highlighter-rouge"><span class="n">Window</span></code> (HTML) 对象下，或者 <code class="language-c++ highlighter-rouge"><span class="n">WorkerGlobalScope</span></code> (Web Workers)对象下。</p>
 
-<p>拥有以下静态方法 <code class="highlighter-rouge">createObjectURL</code> 和 <code class="highlighter-rouge">revokeObjectURL</code>，用于创建一个 blob 对象的 url 和注销这个 blob url。</p>
+<p>拥有以下静态方法 <code class="language-c++ highlighter-rouge"><span class="n">createObjectURL</span></code> 和 <code class="language-c++ highlighter-rouge"><span class="n">revokeObjectURL</span></code>，用于创建一个 blob 对象的 url 和注销这个 blob url。</p>
 
 <p>详情可查看 <a href="https://www.w3.org/TR/2015/WD-FileAPI-20150421/#creating-revoking">关于创建和注销 Blob URL 的 W3C 标准文档</a></p>
 
@@ -618,7 +618,7 @@
                     
                         
                         <li class="relatedPost">
-                            <a href="/2015/12/31/History-API/">前端处理动态 url 和 pushStatus 的使用
+                            <a href="/2016/01/01/History-API/">前端处理动态 url 和 pushStatus 的使用
                             
                             </a>
                         </li>
