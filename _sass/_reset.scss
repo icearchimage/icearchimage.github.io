@@ -26,8 +26,17 @@ h6 {
 html {
     height: 100%;
 }
+
+@font-face {
+    font-family: "CustomZhongWen";
+    src: url("../assets/HYMeiYanTiW.ttf") format("TrueType");
+}
+@font-face {
+    font-family: "CustomEng";
+    src: url("../assets/TerminusTTFWindows-4.46.0.TTF") format("TrueType");
+}
 body {
-    font-family: 'Helvetica Neue',Helvetica,Arial,'Microsoft YaHei',sans-serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, "CustomZhongWen", "Microsoft YaHei", serif;
     color: #333;
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cloudy-day.png");
     position: relative;

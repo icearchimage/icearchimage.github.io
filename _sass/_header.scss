@@ -1,8 +1,10 @@
 header {
-    background: #87ceeb; // skyblue
-    height: 52px;
+    // background: #87ceeb; // skyblue
+    background-image: url(../assets/blue-pixels-header.png);
+    background-size: contain;
+    height: 102px; // overwrited below
     color: #3f3f3f; // blackgrey
-    box-shadow: 0 2px 4px 1px rgba(0,0,0,0.5);
+    // box-shadow: 0 2px 4px 1px rgba(0,0,0,0.5);
     margin-bottom: 20px;
     a {
         color: #3f3f3f; // blackgrey
@@ -43,8 +45,8 @@ header {
                         padding: 0 10px;
                         height: 52px;
                         &:hover {
-                            background-color: #fff;
-                            box-shadow: 0 25px 25px -15px rgba(255,255,255,0.93);
+                            background-color: #fff6;
+                            box-shadow: 0 25px 25px -15px rgba(255,255,255,0.99);
                         }
                         i {
                             margin-right: 5px;
@@ -61,7 +63,7 @@ header {
 }
 @media screen and (max-width:1200px) and (min-width: 770px) {
     header {
-        height: 50px;
+        height: 100px;
         .wrapper {
             width: 90%;
             line-height: 50px;
@@ -93,7 +95,7 @@ header {
 }
 @media screen and (max-width: 770px) {
     header {
-        height: 48px;
+        height: 90px;
         margin-bottom: 15px;
         .wrapper {
             width: 95%;
