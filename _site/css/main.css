@@ -35,11 +35,23 @@ html {
 @font-face {
   font-family: "CustomEng";
   src: url("../assets/TerminusTTFWindows-4.46.0.TTF") format("TrueType"); }
+@keyframes mymove {
+  0% {
+    background-position: 0px 0px; }
+  20% {
+    background-position: 80px 0px; }
+  50% {
+    background-position: 200px 0px; }
+  80% {
+    background-position: 320px 0px; }
+  100% {
+    background-position: 400px 0px; } }
 body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, "CustomZhongWen", "Microsoft YaHei", serif;
   color: #333;
   background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/cloudy-day.png");
   position: relative;
+  animation: mymove 50s infinite;
   min-height: 100%;
   padding-bottom: 190px; }
 
